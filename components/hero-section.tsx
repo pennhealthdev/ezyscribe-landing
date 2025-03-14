@@ -67,22 +67,16 @@ export function HeroSection() {
             paused: true
         })
 
-        const handleMouseMove = (event: MouseEvent) => {
-            const landing = document.querySelector('.landing');
-            // const particle1 = document.querySelector('.particle1');
-            // const particle2 = document.querySelector('.particle2');
-            if (landing) {
-                const x = (event.clientX / window.innerWidth) * 100;
-                const y = (event.clientY / window.innerHeight) * 100;
-                //   @ts-ignore
-                // landing.style.backgroundPosition = `top center, ${x}% ${y / 5}%, top`;
-                // particle1.style.transform = `translate(${x}px, ${y}px)`;
-                //   @ts-ignore
-                // particle2.style.transform = `translate(${x}px, ${y}px)`;
-            }
-        };
+        // const handleMouseMove = (event: MouseEvent) => {
+        //     const landing = document.querySelector('.landing');
+        //     if (landing) {
+        //         const x = (event.clientX / window.innerWidth) * 100;
+        //         const y = (event.clientY / window.innerHeight) * 100;
 
-        window.addEventListener('mousemove', handleMouseMove);
+        //     }
+        // };
+
+        // window.addEventListener('mousemove', handleMouseMove);
 
     });
 

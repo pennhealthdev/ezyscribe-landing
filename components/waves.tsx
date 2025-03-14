@@ -1,3 +1,4 @@
+"use client"
 import React, { useEffect, useRef } from 'react';
 import * as THREE from 'three';
 import Stats from 'stats.js';
@@ -6,13 +7,17 @@ const Waves: React.FC = () => {
   const sectionRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    if (typeof window === "undefined") {
+      // Exit if not in the client-side environment
+      return;
+    }
+
     let container: HTMLDivElement | null = null;
     let camera: THREE.PerspectiveCamera, scene: THREE.Scene, renderer: THREE.WebGLRenderer;
     const particles: THREE.Sprite[] = [];
     let mouseX = 0, mouseY = 0;
     let count = 0;
     const stats = new Stats();
-
 
     const SEPARATION = 100, AMOUNTX = 50, AMOUNTY = 50;
     const windowHalfX = window.innerWidth / 2;
@@ -41,7 +46,7 @@ const Waves: React.FC = () => {
             const positionZ = iy * SEPARATION - ((AMOUNTY * SEPARATION) / 2);
             const gradient = context.createRadialGradient(32, 32, 0, 32, 32, 32);
             const colorStop = (positionZ + 50) / 3000; // Normalize to range [0, 1]
-            const color = `rgb(${Math.min(255, Math.max(0, 255 *  colorStop))}, 0, ${Math.min(255, Math.max(0, 255 * (1 - colorStop)))})`;
+            const color = `rgb(${Math.min(255, Math.max(0, 255 * colorStop))}, 0, ${Math.min(255, Math.max(0, 255 * (1 - colorStop)))})`;
 
             context.fillStyle = color;
             context.beginPath();
@@ -62,8 +67,6 @@ const Waves: React.FC = () => {
       renderer.setPixelRatio(window.devicePixelRatio);
       renderer.setSize(window.innerWidth, window.innerHeight);
       container.appendChild(renderer.domElement);
-
-      // container.appendChild(stats.dom);
 
       document.addEventListener('mousemove', onDocumentMouseMove, false);
       document.addEventListener('touchstart', onDocumentTouchStart, false);

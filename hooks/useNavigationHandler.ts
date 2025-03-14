@@ -8,6 +8,10 @@ const useNavigationHandler = () => {
 
   useEffect(() => {
     const handleNavigation = async (url: string) => {
+      if (typeof window === "undefined") {
+        // Exit if not in the client-side environment
+        return;
+      }
       if (!url.includes(window.location.origin)) {
         return;
       }

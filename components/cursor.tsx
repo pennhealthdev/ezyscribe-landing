@@ -14,29 +14,29 @@ export function CursorGlass() {
 
     const cursorRef = useRef<HTMLDivElement>(null);
 
-    useGSAP(() => {
+    // useGSAP(() => {
       
 
-        gsap.to('.landing', {
-            opacity: 0,
-            backgroundPosition: '-70%, top center, center 30%, center 100%',
-            stagger: 0.2,
-            paused: true
-        })
+    //     gsap.to('.landing', {
+    //         opacity: 0,
+    //         backgroundPosition: '-70%, top center, center 30%, center 100%',
+    //         stagger: 0.2,
+    //         paused: true
+    //     })
 
-        const handleMouseMove = (event: MouseEvent) => {
-            const cursor = document.querySelector('.cursor');
-            if (cursor) {
-              const x = event.clientX;
-              const y = event.clientY;
-            //   @ts-ignore
-              cursor.style.transform = `translate(${x}px, ${y}px)`;
-            }
-          };
+    //     const handleMouseMove = (event: MouseEvent) => {
+    //         const cursor = document.querySelector('.cursor');
+    //         if (cursor) {
+    //           const x = event.clientX;
+    //           const y = event.clientY;
+    //         //   @ts-ignore
+    //           cursor.style.transform = `translate(${x}px, ${y}px)`;
+    //         }
+    //       };
       
-          window.addEventListener('mousemove', handleMouseMove);
+    //       window.addEventListener('mousemove', handleMouseMove);
 
-    });
+    // });
     
 
     return (

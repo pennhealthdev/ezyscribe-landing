@@ -45,6 +45,12 @@ export function NavigationMain() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   useEffect(() => {
+
+    if (typeof window === "undefined") {
+      // Exit if not in the client-side environment
+      return;
+    }
+    
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
       setIsMobileMenuOpen(false);
