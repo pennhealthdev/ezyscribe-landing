@@ -1,16 +1,63 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist, Geist_Mono, Kanit } from "next/font/google";
 import "./globals.css";
+import { SmoothScrollProvider } from "@/components/providers/smooth-scroll-provider";
+import localFont from 'next/font/local'
+import { Toaster } from "@/components/ui/sonner";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
+const resonate = localFont({
+  src: [
+    {
+      path: '../public/resonate/Resonate-Thin.ttf',
+      weight: '100',
+      style: 'normal',
+    },
+    {
+      path: '../public/resonate/Resonate-Extralight.ttf',
+      weight: '200',
+      style: 'normal',
+    },
+    {
+      path: '../public/resonate/Resonate-Light.ttf',
+      weight: '300',
+      style: 'normal',
+    },
+    {
+      path: '../public/resonate/Resonate-Regular.ttf',
+      weight: '400',
+      style: 'normal',
+    },
+    {
+      path: '../public/resonate/Resonate-Medium.ttf',
+      weight: '500',
+      style: 'normal',
+    },
+    {
+      path: '../public/resonate/Resonate-SemiBold.ttf',
+      weight: '600',
+      style: 'normal',
+    },
+    {
+      path: '../public/resonate/Resonate-Bold.ttf',
+      weight: '700',
+      style: 'normal',
+    },
+    {
+      path: '../public/resonate/Resonate-ExtraBold.ttf',
+      weight: '800',
+      style: 'normal',
+    },
+    {
+      path: '../public/resonate/Resonate-Black.ttf',
+      weight: '900',
+      style: 'normal',
+    },
+  ],
+})
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
+// const kanit = Kanit({
+//   subsets: ["latin"],
+// });
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -24,10 +71,18 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      {/* <head>
+        <script
+          crossOrigin="anonymous"
+          src="//unpkg.com/react-scan/dist/auto.global.js"
+        />
+      </head> */}
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${resonate.className} antialiased w-full`}
       >
-        {children}
+        {/* {children} */}
+        <Toaster />
+        <SmoothScrollProvider>{children}</SmoothScrollProvider>
       </body>
     </html>
   );
