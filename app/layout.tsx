@@ -6,55 +6,55 @@ import localFont from 'next/font/local'
 import { Toaster } from "@/components/ui/sonner";
 
 
-const resonate = localFont({
-  src: [
-    {
-      path: './Resonate-Thin.ttf',
-      weight: '100',
-      style: 'normal',
-    },
-    {
-      path: './Resonate-Extralight.ttf',
-      weight: '200',
-      style: 'normal',
-    },
-    {
-      path: './Resonate-Light.ttf',
-      weight: '300',
-      style: 'normal',
-    },
-    {
-      path: './Resonate-Regular.ttf',
-      weight: '400',
-      style: 'normal',
-    },
-    {
-      path: './Resonate-Medium.ttf',
-      weight: '500',
-      style: 'normal',
-    },
-    {
-      path: './Resonate-SemiBold.ttf',
-      weight: '600',
-      style: 'normal',
-    },
-    {
-      path: './Resonate-Bold.ttf',
-      weight: '700',
-      style: 'normal',
-    },
-    {
-      path: './Resonate-ExtraBold.ttf',
-      weight: '800',
-      style: 'normal',
-    },
-    {
-      path: './Resonate-Black.ttf',
-      weight: '900',
-      style: 'normal',
-    },
-  ],
-})
+// const resonate = localFont({
+//   src: [
+//     {
+//       path: './Resonate-Thin.ttf',
+//       weight: '100',
+//       style: 'normal',
+//     },
+//     {
+//       path: './Resonate-Extralight.ttf',
+//       weight: '200',
+//       style: 'normal',
+//     },
+//     {
+//       path: './Resonate-Light.ttf',
+//       weight: '300',
+//       style: 'normal',
+//     },
+//     {
+//       path: './Resonate-Regular.ttf',
+//       weight: '400',
+//       style: 'normal',
+//     },
+//     {
+//       path: './Resonate-Medium.ttf',
+//       weight: '500',
+//       style: 'normal',
+//     },
+//     {
+//       path: './Resonate-SemiBold.ttf',
+//       weight: '600',
+//       style: 'normal',
+//     },
+//     {
+//       path: './Resonate-Bold.ttf',
+//       weight: '700',
+//       style: 'normal',
+//     },
+//     {
+//       path: './Resonate-ExtraBold.ttf',
+//       weight: '800',
+//       style: 'normal',
+//     },
+//     {
+//       path: './Resonate-Black.ttf',
+//       weight: '900',
+//       style: 'normal',
+//     },
+//   ],
+// })
 
 // const kanit = Kanit({
 //   subsets: ["latin"],
@@ -79,7 +79,7 @@ export default function RootLayout({
         />
       </head> */}
       <body
-        className={`${resonate.className} antialiased w-full`}
+        className={` antialiased w-full`}
       >
         {/* {children} */}
         <Toaster />
