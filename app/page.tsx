@@ -474,14 +474,12 @@ export default function Home() {
 
   return (
     <>
-      {/* <ReactLenis options={{ autoRaf: false }} ref={lenisRef!} root> */}
-      {/* <div className="absolute w-full min-h-fit h-[150%] pointer-events-none z-[-1]">
-        <Image src='/test-bg.jpg' fill alt="" className="h-full" objectFit="cover" objectPosition="top center" quality={100}/>
-      </div> */}
-      {/* <CursorGlass /> */}
       <NavigationMain />
+
       <main className="relative">
+
         <HeroSection />
+        
         <section className="relative flex flex-col bg-[#090909] mt-10">
           <div className="bg-gradient-to-r from-[#090909] to-white/0 z-10 w-[40%] h-full pointer-events-none absolute hidden sm:block sm:left-20 top-0"></div>
           <div className="bg-gradient-to-r from-[#090909] to-white/0 z-10 w-[40%] h-full pointer-events-none absolute hidden sm:block sm:left-20 top-0"></div>
@@ -492,7 +490,6 @@ export default function Home() {
           <div className="bg-[#1B1626] px-5 py-2 max-w-fit rounded-full text-background font-normal sm:absolute left-28 top-0 z-50 mb-10">
             Top EHR Platforms
           </div>
-          {/* <h2 className="text-background mb-5 absolute left-20 top-2 z-50">Top EHR Platforms</h2> */}
           <Carousel
             plugins={[plugin2.current]}
             className="w-full sm:max-w-6xl"
@@ -500,30 +497,25 @@ export default function Home() {
             <CarouselContent className="-ml-1">
               {LOGO_SLIDER.map((img, index) => (
                 <CarouselItem key={index} className="px-2 pl-10 basis-1/2 lg:basis-2/12 sm:aspect-square sm:gap-10">
-                  {/* <div className="p-1"> */}
                   <Card className="bg-transparent border-none">
                     <CardContent className="flex items-center justify-center sm:p-6 relative bg-transparent">
-                      {/* <span className="text-2xl font-semibold">{index + 1}</span> */}
                       <Image src={img.image} alt="" fill objectFit="contain" className="" />
                     </CardContent>
                   </Card>
-                  {/* </div> */}
                 </CarouselItem>
               ))}
             </CarouselContent>
-            {/* <CarouselPrevious /> */}
-            {/* <CarouselNext /> */}
           </Carousel>
 
-          
+
         </section>
+
         <section className="aboutus2 py-20 p-5 font-medium mt-10 sm:mt-0" id="about">
           <div className="absolute top-0 left-0   z-10 bg-gradient-to-b from-[#090909] to-white/0 w-full h-[10%] sm:h-[25%]  pointer-events-none "></div>
 
           <div className="grid sm:grid-cols-2 max-w-6xl gap-20">
             <div className="flex items-center h-full">
               <div className=" ">
-                {/* <Image alt="" src="/EzyScribe.png" width={70} height={70} quality={100} objectFit="contain" className="" /> */}
                 <div className="bg-[#1B1626] self-start text-left px-5 py-2 max-w-fit rounded-full text-background font-normal z-50">
                   About Us
                 </div>
@@ -547,9 +539,6 @@ export default function Home() {
             </div>
             <div className=" relative h-[450px] w-full ">
 
-              {/* <h2 className=" mt-10 text-5xl text-transparent bg-gradient-to-br from-background to-[#DDC3A5] inline-block bg-clip-text">
-                Why Choose EzyScribe?
-              </h2> */}
               <Image
                 src='/abtus.jpeg'
                 alt={`Dashboard View`}
@@ -560,11 +549,11 @@ export default function Home() {
                 quality={100}
               />
 
-              {/* <Image alt="" src="/national-cancer-institute-L8tWZT4CcVQ-unsplash.jpg" fill /> */}
             </div>
 
           </div>
         </section>
+
         <section className="aboutus2 py-20 p-5 font-medium" >
           <div className="absolute top-0 left-0  z-10 bg-gradient-to-b from-[#090909] to-white/0 w-full h-[10%] sm:h-[25%]  pointer-events-none "></div>
 
@@ -573,23 +562,20 @@ export default function Home() {
               <div className="bg-[#1B1626] self-start text-left px-5 py-2 max-w-fit rounded-full text-background font-normal">
                 Why Choose EzyScribe?
               </div>
-              {/* <h2 className=" mt-10 text-5xl text-transparent bg-gradient-to-br from-background to-[#DDC3A5] inline-block bg-clip-text">
-                Why Choose EzyScribe?
-              </h2> */}
 
-             <div className=" relative h-full w-full mt-5">
-             <Image
-                src='/abtus.jpeg'
-                alt={`Dashboard View`}
-                fill
-                className="object-cover rounded-lg  "
-                sizes="(max-width: 3060px) 100vw, 3060px"
-                objectPosition="top center"
-                quality={100}
-              />
-             </div>
-              
-              {/* <Image alt="" src="/national-cancer-institute-L8tWZT4CcVQ-unsplash.jpg" fill /> */}
+
+              <div className=" relative h-full w-full mt-5">
+                <Image
+                  src='/abtus.jpeg'
+                  alt={`Dashboard View`}
+                  fill
+                  className="object-cover rounded-lg  "
+                  sizes="(max-width: 3060px) 100vw, 3060px"
+                  objectPosition="top center"
+                  quality={100}
+                />
+              </div>
+
             </div>
             <div className="flex items-center h-full">
               <div className=" ">
@@ -712,131 +698,8 @@ export default function Home() {
           </div>
         </section>
 
-        {/* <TabletShowcaseTwo /> */}
-
-        {/* <section
-          ref={sectionRef2}
-          className="relative w-full "
-          id="services"
-        >
-          <div className="sticky-container h-screen flex items-center">
-            <div className="w-full">
-              <div className=" mx-auto max-w-6xl px-5">
-                <div className=" relative grid grid-cols-1 lg:grid-cols-[2fr,2fr] gap-12 lg:gap-24 bg-[#ffffff] rounded-3xl h-[80vh] p-14 overflow-hidden tab-section-inner">
-                  <svg width="0" height="0" aria-hidden="true" className="absolute left-0 top-0">
-                    <filter id="dither" primitiveUnits="objectBoundingBox">
-                      <feTurbulence type="fractalNoise" baseFrequency="4.71"></feTurbulence>
-                      <feDisplacementMap in="SourceGraphic" scale=".52"></feDisplacementMap>
-                      <feBlend in2="SourceGraphic"></feBlend>
-                    </filter>
-                  </svg>
-                  <div className=" absolute ipad-big-2 -translate-x-40 translate-y-20 z-10">
-                    {SHOWCASE_ITEMS.map((item, index) => (
-                      <div
-                        key={index}
-                        className={`showcase-image-wrapper showcase-image-wrapper-${index} absolute  inset-0 rounded-lg overflow-hidden`}
-                      >
-                        <div className={`showcase-image showcase-image-${index} absolute inset-0`}>
-                          <Image
-                            src={item.image}
-                            alt={item.title}
-                            fill
-                            className="object-cover"
-                            sizes="(max-width: 100%) 100%, 100%"
-                            priority={index === 0}
-                            quality={100}
-                          />
-                        </div>
-
-                        <div
-                          className={`showcase-overlay showcase-overlay-${index} absolute inset-0 p-6 flex ${item.overlay.position === 'top-left' ? 'items-start justify-start' :
-                            item.overlay.position === 'top-right' ? 'items-start justify-end' :
-                              item.overlay.position === 'bottom-left' ? 'items-end justify-start' :
-                                item.overlay.position === 'bottom-right' ? 'items-end justify-end' :
-                                  'items-center justify-center'
-                            }`}
-                        >
-                          <div className="bg-background/80 backdrop-blur-sm px-4 py-2 rounded-full text-sm font-medium">
-                            {typeof item.overlay.content === 'string'
-                              ? item.overlay.content
-                              : item.overlay.content}
-                          </div>
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                  <div></div>
-
-                  <div className="relative z-10 w-full items-center pt-5">
-                    <h2 className="text-5xl font-medium mb-16 text-background">
-                      How does Ezyscribe work?
-                    </h2>
-
-                    <div className="relative">
-                      {SHOWCASE_ITEMS.map((item, index) => (
-                        <div
-                          key={index}
-                          className={`showcase-item showcase-item-${index} absolute top-0 left-0 space-y-6`}
-                        >
-                          <div className="flex  gap-2">
-                            <p className="w-6 text-background p-1.5 h-6 translate-y-1 bg-blue-100 text-black items-center text-sm justify-center flex rounded-full" >
-                              {item.icon && item.icon}
-                            </p>
-
-                            <h3 className="text-2xl font-normal text-background">
-                              {item.title}
-                            </h3>
-                          </div>
-                          <p className="text-base font-normal text-accent/80 max-w-md">
-                            {item.description}
-                          </p>
-                          <div className="hr-new-style" />
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-
-
-                  <div className="absolute z-[-1] w-[30%] h-60 top-[5%] right-[10%]">
-                    <div className="relative w-full h-full">
-                      <div className="absolute bottom-0 left-0  z-10 bg-gradient-to-t from-[#090909] to-white/0 w-full h-[100%]  pointer-events-none"></div>
-                      <div className="absolute bottom-0 left-0  z-10 bg-gradient-to-t from-[#090909] to-white/0 w-full h-[100%]  pointer-events-none"></div>
-                      <div className="absolute bottom-0 left-0  z-10 bg-gradient-to-t from-[#090909] to-white/0 w-full h-[100%]  pointer-events-none"></div>
-                      <Image src='/Group 1171275294.png' alt="" fill objectFit="ccontain" quality={100} />
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section> */}
-
-
-
-        {/* <TabletShowcase /> */}
-        {/* <section className="hero">
-          <TransitionLink href="/about">About</TransitionLink>
-        </section> */}
         <section className="main overflow-hidden py-20 p-5" id="benefits">
-          {/* <div className="main-content overflow-hidden">
-            <div className="logo">
-            </div>
-            <div className="copy">
-              <div className="line">
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-              </div>
-              <div className="line">
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-              </div>
-              <div className="line">
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-              </div>
-            </div>
-            <div className="btn">
-              <button>Lorem</button>
-            </div>
-          </div> */}
-          {/* {genetateRows()} */}
+
           <div className="bg-[#1B1626] px-5 py-2 max-w-fit  mb-10 ml-[7.5rem]  rounded-full text-background text-left self-start font-normal">
             Benefits of Ezyscribe
           </div>
@@ -851,7 +714,6 @@ export default function Home() {
             <div className="card card-right sm:mt-20 hover:bg-blue-600 transition-colors duration-700 ease-in-out">
               <h3 className="">Intuitive Interface</h3>
               <p className="text-lg">With Ezyscribe, physicians have access to an intuitive solution that documents relevant conversation in an accurate and timely manner, with just a microphone-equipped device and a web browser. This empowers them to focus purely on patient care while Ezyscribe handles everything clerical.</p>
-              {/* <MonitorSmartphone width={200} height={200} className="absolute bottom-0 right-0 opacity-5 text-background" /> */}
               <div className="absolute bottom-0 right-0 opacity-30 text-background w-52 h-52 z-[-1] filter contrast-50">
                 <Image src='/interact-interactive-action-smartphone-touch.svg' alt="" fill objectFit="contain" quality={100} />
               </div>
@@ -861,7 +723,6 @@ export default function Home() {
             <div className="card card-left sm:-mt-20 -mt-8 hover:bg-purple-600 transition-colors duration-700 ease-in-out">
               <h3 className="">Save Costs</h3>
               <p className="text-lg">Our platform offers a cost-effective solution through optimal capacity utilization, ensuring high standards of accuracy. This enables healthcare providers to streamline their documentation processes, reduce overhead costs, and focus more on patient care.​</p>
-              {/* <HandCoins width={200} height={200} className="absolute bottom-0 right-0 opacity-5 text-background" /> */}
               <div className="absolute bottom-0 right-0 opacity-30 text-background w-52 h-52 z-[-1] filter contrast-50">
                 <Image src='/043-results.png' alt="" fill objectFit="contain" quality={100} />
               </div>
@@ -869,7 +730,6 @@ export default function Home() {
             <div className="card card-right  hover:bg-yellow-600 transition-colors duration-700 ease-in-out">
               <h3 className="">HIPAA Compliant</h3>
               <p className="text-lg">Ezyscribe is fully HIPAA compliant, making it easy for healthcare providers to meet regulatory standards. The software ensures that patient information is securely handled and protected, maintaining confidentiality and trust.</p>
-              {/* <ShieldCheck width={200} height={200} className="absolute bottom-0 right-0 opacity-5 text-background" /> */}
               <div className="absolute bottom-0 right-0 opacity-10 text-background w-52 h-52 z-[-1] filter contrast-0">
                 <Image src='/hipaa-compliant-seeklogo-2.png' alt="" fill objectFit="contain" quality={100} />
               </div>
@@ -892,7 +752,6 @@ export default function Home() {
                 </svg>
                 <h4 className="text-xl font-medium mt-12 text-blue-50">"EzyScribe really allows me to easily record a patient encounter without worrying about missing important details. The AI-powered documentation is fast and accurate, saving my valuable time. With EzyScribe, I can focus more on patient care instead of paperwork as it has truly simplifies my workflow and reduced my administrative burden”.</h4>
                 <h5 className="text-lg font-medium mt-10 text-blue-200">Dr. Alexander Blackwell</h5>
-                {/* <p className="text-base text-background/60">Physician</p> */}
               </div>
               <div className=" w-full sm:h-full h-96 rounded-2xl bg-center bg-cover flex items-end justify-center relative overflow-hidden">
                 <div className=" absolute bottom-0 right-0 left-0 top-0 h-full w-full bg-gradient-to-t z-[1] from-[#090909] to-black/50"></div>
@@ -923,41 +782,7 @@ export default function Home() {
 
             </div>
 
-            {/* <Carousel
-              plugins={[plugin.current]}
-              className="w-full mt-10"
-            >
-              <CarouselContent className=" w-full hover:cursor-e-resize">
-                {FAQ_ITEMS.map((items, index) => (
-                  <CarouselItem key={index} className="">
-                    <div className="p-1">
-                      <Card className="bg-[#1A1A1A] border-none p-10 testimonial-card">
-                        <CardContent className="flex items-center justify-center p-6 w-full">
-                          <div className={`grid grid-cols-1  ${items.image ? 'lg:grid-cols-[1fr,2fr]' : 'lg:grid-cols-1'} gap-20 mx-auto `}>
-                            {items.image &&
-                              <div className="relative rounded-3xl overflow-hidden h-96">
-                                <Image src={items.image} alt="" fill />
-                              </div>
-                            }
-                            <div className="text-background stroke-background/10 self-center">
-                              <svg fill="none" viewBox="0 0 162 128" aria-hidden="true" className="  w-40 absolute">
-                                <path d="M65.5697 118.507L65.8918 118.89C68.9503 116.314 71.367 113.253 73.1386 109.71C74.9162 106.155 75.8027 102.28 75.8027 98.0919C75.8027 94.237 75.16 90.6155 73.8708 87.2314C72.5851 83.8565 70.8137 80.9533 68.553 78.5292C66.4529 76.1079 63.9476 74.2482 61.0407 72.9536C58.2795 71.4949 55.276 70.767 52.0386 70.767C48.9935 70.767 46.4686 71.1668 44.4872 71.9924L44.4799 71.9955L44.4726 71.9988C42.7101 72.7999 41.1035 73.6831 39.6544 74.6492C38.2407 75.5916 36.8279 76.455 35.4159 77.2394L35.4047 77.2457L35.3938 77.2525C34.2318 77.9787 32.6713 78.3634 30.6736 78.3634C29.0405 78.3634 27.5131 77.2868 26.1274 74.8257C24.7483 72.2185 24.0519 69.2166 24.0519 65.8071C24.0519 60.0311 25.3782 54.4081 28.0373 48.9335C30.703 43.4454 34.3114 38.345 38.8667 33.6325C43.5812 28.761 49.0045 24.5159 55.1389 20.8979C60.1667 18.0071 65.4966 15.6179 71.1291 13.7305C73.8626 12.8145 75.8027 10.2968 75.8027 7.38572C75.8027 3.6497 72.6341 0.62247 68.8814 1.1527C61.1635 2.2432 53.7398 4.41426 46.6119 7.66522C37.5369 11.6459 29.5729 17.0612 22.7236 23.9105C16.0322 30.6019 10.618 38.4859 6.47981 47.558L6.47976 47.558L6.47682 47.5647C2.4901 56.6544 0.5 66.6148 0.5 77.4391C0.5 84.2996 1.61702 90.7679 3.85425 96.8404L3.8558 96.8445C6.08991 102.749 9.12394 108.02 12.959 112.654L12.959 112.654L12.9646 112.661C16.8027 117.138 21.2829 120.739 26.4034 123.459L26.4033 123.459L26.4144 123.465C31.5505 126.033 37.0873 127.316 43.0178 127.316C47.5035 127.316 51.6783 126.595 55.5376 125.148L55.5376 125.148L55.5477 125.144C59.5516 123.542 63.0052 121.456 65.9019 118.881L65.5697 118.507Z" id="b56e9dab-6ccb-4d32-ad02-6b4bb5d9bbeb">
-                                </path>
-                                <use x="86" href="#b56e9dab-6ccb-4d32-ad02-6b4bb5d9bbeb"></use>
-                              </svg>
-                              <h4 className="text-2xl font-medium mt-12">{items.description}</h4>
-                              {items.name && <h5 className="text-xl font-medium mt-10">{items.name}</h5>}
-                              {items.designation && <p className="text-base text-background/60">{items.designation}</p>}
-                            </div>
-                          </div>
 
-                        </CardContent>
-                      </Card>
-                    </div>
-                  </CarouselItem>
-                ))}
-              </CarouselContent>
-            </Carousel> */}
           </div>
         </section>
 
@@ -970,9 +795,7 @@ export default function Home() {
               </Custombutton>
             </div>
             <div className="mt-5 -ml-36 sm:m-0">
-              {/* <div className="absolute right-0 "> */}
               <div className=" ipad-big-2 hero-content group sm:absolute -right-36 top-10">
-                {/* <ArrowDown className="w-6 h-6 text-muted-foreground" /> */}
                 <div className="relative w-full h-full  rounded-lg rounded-b-none overflow-hidden">
                   <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-20 ">
 
@@ -980,7 +803,6 @@ export default function Home() {
                     <Dialog>
                       <DialogTrigger asChild className="bg-none">
                         <div className="button__holder ">
-                          {/* <h2>Hover me &rarr;</h2> */}
                           <button className="plus text-center items-center justify-center flex">
                             <Play className="w-24 h-10 text-background" />
                           </button>
@@ -1004,8 +826,6 @@ export default function Home() {
 
 
                   </div>
-                  {/* <div className="absolute top-0 left-0  z-10 bg-gray-950 w-full h-full bg-opacity-0 group-hover:bg-opacity-30 pointer-events-none "></div> */}
-                  {/* <div className="absolute top-0 left-0  z-10 bg-gradient-to-t from-[#00111C] to-white/0 w-full h-full  pointer-events-none "></div> */}
 
                   <Image
                     src='/ezyscribecom_dashboard_dark.webp'
@@ -1018,12 +838,7 @@ export default function Home() {
                   />
                 </div>
               </div>
-              {/* </div> */}
-              {/* <div className="button__holder ">
-                <button className="plus text-center items-center justify-center flex">
-                  <Play className="w-24 h-10 text-background" />
-                </button>
-              </div> */}
+
             </div>
           </div>
         </section>
@@ -1122,16 +937,7 @@ export default function Home() {
             </div>
             <div className=" sm:flex sm:justify-center w-full space-x-5 justify-start">
               {links.map((item, index) => (
-                // <>
                 <TransitionLink key={index} href={item.href} >{item.title}</TransitionLink>
-                /* <a
-                  key={item}
-                  href={`#${item.toLowerCase()}`}
-                  className="text-background/80 hover:text-foreground transition-colors"
-                >
-                  {item}
-                </a>
-                </> */
               ))}
             </div>
             <div className="flex sm:space-x-2 sm:justify-end justify-center space-x-5">
@@ -1164,14 +970,9 @@ export default function Home() {
             </div>
           </div>
         </footer>
-        {/* <div className="ipad">
-          <div className="screen"></div>
-          <div className="home-button"></div>
-        </div> */}
 
 
       </main>
-      {/* </ReactLenis> */}
     </>
   );
 }

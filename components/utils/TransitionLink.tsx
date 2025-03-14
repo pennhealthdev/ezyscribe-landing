@@ -1,6 +1,6 @@
 "use client";
 import { useRouter } from "next/navigation";
-import { ReactNode } from "react";
+import { ReactNode, useEffect, useRef, useCallback } from "react";
 import Link, { LinkProps } from "next/link";
 import Icons from "../icons";
 import dynamicIconImports from "lucide-react/dynamicIconImports";
@@ -12,34 +12,40 @@ interface TransitionLinkProps extends LinkProps {
   icon?: keyof typeof dynamicIconImports;
 }
 
-// Initialize Lenis
-const lenis = new Lenis({
-  duration: 1.2,
-  easing: (t) => 1 - Math.pow(1 - t, 3),
-});
-
-function raf(time:any) {
-  lenis.raf(time);
-  requestAnimationFrame(raf);
-}
-
-requestAnimationFrame(raf);
-
 export const TransitionLink = ({
   children,
   href,
   icon,
   ...props
 }: TransitionLinkProps) => {
-  const router = useRouter();
+  const lenisRef = useRef<Lenis | null>(null);
 
-  const handleScroll = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
-    e.preventDefault();
-    const targetElement = document.getElementById(href.slice(1)); // Assumes href is an ID (e.g., "#section-id")
-    if (targetElement) {
-      lenis.scrollTo(targetElement);
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      lenisRef.current = new Lenis({
+        duration: 1.2, // Set the duration of the scroll animation in seconds
+        easing: (t) => t, // Custom easing function (linear in this case)
+      });
+
+      // Start the Lenis scroll animation loop
+      function raf(time: number) {
+        lenisRef.current?.raf(time);
+        requestAnimationFrame(raf);
+      }
+      requestAnimationFrame(raf);
     }
-  };
+  }, []);
+
+  const handleScroll = useCallback(
+    (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
+      e.preventDefault();
+      const targetElement = document.getElementById(href.slice(1));
+      if (targetElement && lenisRef.current) {
+        lenisRef.current.scrollTo(targetElement);
+      }
+    },
+    [href]
+  );
 
   return (
     <Link onClick={handleScroll} href={href} {...props} className="link last:!mr-0">

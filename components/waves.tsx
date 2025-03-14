@@ -7,10 +7,9 @@ const Waves: React.FC = () => {
   const sectionRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    if (typeof window === "undefined") {
-      // Exit if not in the client-side environment
-      return;
-    }
+ 
+
+    var window = global.window || global.window;
 
     let container: HTMLDivElement | null = null;
     let camera: THREE.PerspectiveCamera, scene: THREE.Scene, renderer: THREE.WebGLRenderer;

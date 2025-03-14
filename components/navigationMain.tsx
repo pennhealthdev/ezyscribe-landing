@@ -44,21 +44,21 @@ export function NavigationMain() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
-  useEffect(() => {
+  // useEffect(() => {
 
-    if (typeof window === "undefined") {
-      // Exit if not in the client-side environment
-      return;
-    }
-    
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
-      setIsMobileMenuOpen(false);
-    };
+  //   if (typeof window === "undefined") {
+  //     // Exit if not in the client-side environment
+  //     return;
+  //   }
 
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  //   const handleScroll = () => {
+  //     setIsScrolled(window.scrollY > 50);
+  //     setIsMobileMenuOpen(false);
+  //   };
+
+  //   window.addEventListener('scroll', handleScroll);
+  //   return () => window.removeEventListener('scroll', handleScroll);
+  // }, []);
 
   useGSAP(() => {
     const showAnim = gsap.from('.main-tool-bar', {

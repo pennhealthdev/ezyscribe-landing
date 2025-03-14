@@ -5,6 +5,7 @@ import { SmoothScrollProvider } from "@/components/providers/smooth-scroll-provi
 import localFont from 'next/font/local'
 import { Toaster } from "@/components/ui/sonner";
 
+
 const resonate = localFont({
   src: [
     {
