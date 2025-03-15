@@ -9,47 +9,47 @@ import { Toaster } from "@/components/ui/sonner";
 const resonate = localFont({
   src: [
     {
-      path: '../fonts/Resonate-Thin.ttf',
+      path: './fonts/Resonate-Thin.ttf',
       weight: '100',
       style: 'normal',
     },
     {
-      path: '../fonts/Resonate-Extralight.ttf',
+      path: './fonts/Resonate-Extralight.ttf',
       weight: '200',
       style: 'normal',
     },
     {
-      path: '../fonts/Resonate-Light.ttf',
+      path: './fonts/Resonate-Light.ttf',
       weight: '300',
       style: 'normal',
     },
     {
-      path: '../fonts/Resonate-Regular.ttf',
+      path: './fonts/Resonate-Regular.ttf',
       weight: '400',
       style: 'normal',
     },
     {
-      path: '../fonts/Resonate-Medium.ttf',
+      path: './fonts/Resonate-Medium.ttf',
       weight: '500',
       style: 'normal',
     },
     {
-      path: '../fonts/Resonate-SemiBold.ttf',
+      path: './fonts/Resonate-SemiBold.ttf',
       weight: '600',
       style: 'normal',
     },
     {
-      path: '../fonts/Resonate-Bold.ttf',
+      path: './fonts/Resonate-Bold.ttf',
       weight: '700',
       style: 'normal',
     },
     {
-      path: '../fonts/Resonate-ExtraBold.ttf',
+      path: './fonts/Resonate-ExtraBold.ttf',
       weight: '800',
       style: 'normal',
     },
     {
-      path: '../fonts/Resonate-Black.ttf',
+      path: './fonts/Resonate-Black.ttf',
       weight: '900',
       style: 'normal',
     },
