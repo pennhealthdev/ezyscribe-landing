@@ -14,7 +14,7 @@ const resonate = localFont({
       style: 'normal',
     },
     {
-      path: './fonts/Resonate-Extralight.ttf',
+      path: './fonts/Resonate-ExtraLight.ttf',
       weight: '200',
       style: 'normal',
     },
