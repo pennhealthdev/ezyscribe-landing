@@ -113,7 +113,7 @@ export function NavigationMain() {
           
         </div>
 
-        <SparcleButton className="hero-content hidden sm:block" link href='https://www.app.ezyscribe.com' target='_blank'>
+        <SparcleButton className="hero-content hidden sm:block" link href='https://app.ezyscribe.com' target='_blank'>
               Sign In
           </SparcleButton>
 
