@@ -62,7 +62,7 @@ import { Toaster } from "@/components/ui/sonner";
 
 export const metadata: Metadata = {
   title: "Ezyscribe",
-  description: "Your AI-Powered Medical Scribing solution",
+  description: "Your AI-Powered Medical Scribing solution.",
 };
 
 export default function RootLayout({
