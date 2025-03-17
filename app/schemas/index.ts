@@ -16,7 +16,10 @@ export const CreateDemoSchema = z.object({
   sizeOfPeoples: z.number().min(1, {
     message: "Number of people must be at least 1.",
   }),
-  location: z.enum(["Al", "Chittagong", "Sylhet", "Rangpur", "Khulna"]),
+  location: z.string().min(2, {
+    message: "Location must be at least 2 characters.",
+  }),
+  // location: z.enum(["Al", "Chittagong", "Sylhet", "Rangpur", "Khulna"]),
   companyName: z.string().min(2, {
     message: "Company Name must be at least 2 characters.",
   }),

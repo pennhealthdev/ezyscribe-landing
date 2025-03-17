@@ -11,6 +11,7 @@ import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, Di
 import { Video } from "./video";
 import Waves from "./waves";
 import { SparcleButton } from "./sparkle-button";
+import { TrialRequestInputForm } from "./TrialRequestForm";
 
 export function HeroSection() {
 
@@ -158,10 +159,9 @@ export function HeroSection() {
                         </DialogTrigger>
                         <DialogContent>
                             <DialogHeader>
-                                <DialogTitle>Are you absolutely sure?</DialogTitle>
+                                <DialogTitle>Please fill the form.</DialogTitle>
                                 <DialogDescription>
-                                    This action cannot be undone. This will permanently delete your account
-                                    and remove your data from our servers.
+                                <TrialRequestInputForm />
                                 </DialogDescription>
                             </DialogHeader>
                         </DialogContent>
