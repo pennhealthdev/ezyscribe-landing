@@ -33,9 +33,6 @@ const FormSchema = z.object({
     message: "Email must be at least 2 characters.",
   }),
   mobnumber: z.string().refine(validator.isMobilePhone),
-  sizeOfPeoples: z.number().min(1, {
-    message: "Number of people must be at least 1.",
-  }),
   location: z.string().min(2, {
     message: "Location must be at least 2 characters.",
   }),
@@ -65,7 +62,6 @@ export function TrialRequestInputForm() {
       sName: "",
       email: "",
       mobnumber: "",
-      sizeOfPeoples: 1,
       location: "",
       companyName: "",
       EHR: "",
@@ -150,20 +146,7 @@ export function TrialRequestInputForm() {
             </FormItem>
           )}
         />
-        <FormField
-          control={form.control}
-          name="sizeOfPeoples"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel>No of Peoples</FormLabel>
-              <FormControl>
-                <Input placeholder="" {...field}  className="text-black"/>
-              </FormControl>
-
-              <FormMessage />
-            </FormItem>
-          )}
-        />
+      
         <FormField
           control={form.control}
           name="location"
@@ -183,7 +166,7 @@ export function TrialRequestInputForm() {
           name="companyName"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Company Name</FormLabel>
+              <FormLabel>Firm Name</FormLabel>
               <FormControl>
                 <Input placeholder="" {...field}  className="text-black"/>
               </FormControl>
