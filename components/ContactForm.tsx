@@ -74,7 +74,7 @@ export function InputForm() {
           name="fName"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>First Name</FormLabel>
+              <FormLabel>First Name *</FormLabel>
               <FormControl>
                 <Input placeholder="" {...field} className="text-black"/>
               </FormControl>
@@ -87,7 +87,7 @@ export function InputForm() {
           name="sName"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Lasr Name</FormLabel>
+              <FormLabel>Lasr Name *</FormLabel>
               <FormControl>
                 <Input placeholder="" {...field}  className="text-black"/>
               </FormControl>
@@ -101,7 +101,7 @@ export function InputForm() {
           name="email"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Email</FormLabel>
+              <FormLabel>Email *</FormLabel>
               <FormControl>
                 <Input placeholder="" {...field}  className="text-black"/>
               </FormControl>
