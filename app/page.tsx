@@ -961,10 +961,10 @@ export default function Home() {
             </div>
 
             <div className="sm:flex space-x-2 sm:justify-end">
-              <Link href='' className="p-1 text-background">
+              <Link href='/terms-of-use' className="p-1 text-background">
                 Terms & Conditions
               </Link>
-              <Link href='' className="p-1 text-background">
+              <Link href='/privacy' className="p-1 text-background">
                 Privacy Policy
               </Link>
             </div>
