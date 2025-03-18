@@ -191,11 +191,11 @@ export const send7DayDemoReqEmail = async (
   fName: string,
   sName: string,
   email: string,
-  mobnumber: string,
-  location: string,
-  companyName: string,
-  EHR: string,
-  MedicalSpeciality: string
+  mobnumber: string | undefined,
+  location: string | undefined,
+  companyName: string | undefined,
+  EHR: string | undefined,
+  MedicalSpeciality: string | undefined,
 ) => {
   try {
     const info = await transporter.sendMail({

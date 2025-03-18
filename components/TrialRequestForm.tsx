@@ -19,34 +19,11 @@ import { Input } from "@/components/ui/input"
 import validator from "validator";
 import { startTransition, useState } from "react"
 import { sendDemoReqEmail } from "@/lib/mail"
-import { demoRequest } from "@/app/actions/demoRequest"
+import { demoRequest } from "@/app/actions/sendMails"
 import { SparcleButton } from "./sparkle-button"
-
-const FormSchema = z.object({
-  fName: z.string().min(2, {
-    message: "FIst Name must be at least 2 characters.",
-  }),
-  sName: z.string().min(2, {
-    message: "Last must be at least 2 characters.",
-  }),
-  email: z.string().email().min(2, {
-    message: "Email must be at least 2 characters.",
-  }),
-  mobnumber: z.string().refine(validator.isMobilePhone),
-  location: z.string().min(2, {
-    message: "Location must be at least 2 characters.",
-  }),
-  // location: z.enum(["Al", "Chittagong", "Sylhet", "Rangpur", "Khulna"]),
-  companyName: z.string().min(2, {
-    message: "Company Name must be at least 2 characters.",
-  }),
-  EHR: z.string().min(2, {
-    message: "EHR must be at least 2 characters.",
-  }),
-  MedicalSpeciality: z.string().min(2, {
-    message: "Medical Speciality must be at least 2 characters.",
-  })
-})
+import { Checkbox } from "./ui/checkbox"
+import Link from "next/link"
+import { TrialDemoSchema } from "@/app/schemas"
 
 export function TrialRequestInputForm() {
 
@@ -55,8 +32,8 @@ export function TrialRequestInputForm() {
   const [isSubmittingDemo, setIsSubmittingDemo] = useState(false);
   const [showPopup, setShowPopup] = useState(false);
 
-  const form = useForm<z.infer<typeof FormSchema>>({
-    resolver: zodResolver(FormSchema),
+  const form = useForm<z.infer<typeof TrialDemoSchema>>({
+    resolver: zodResolver(TrialDemoSchema),
     defaultValues: {
       fName: "",
       sName: "",
@@ -66,11 +43,12 @@ export function TrialRequestInputForm() {
       companyName: "",
       EHR: "",
       MedicalSpeciality: "",
+      termsAndCondition: false
     },
   })
 
 
-  function onSubmit(data: z.infer<typeof FormSchema>) {
+  function onSubmit(data: z.infer<typeof TrialDemoSchema>) {
     setError("");
     setSuccess("");
     setIsSubmittingDemo(true);
@@ -203,7 +181,29 @@ export function TrialRequestInputForm() {
             </FormItem>
           )}
         />
-        <SparcleButton type="submit" className="w-full">
+        <FormField
+          control={form.control}
+          name="termsAndCondition"
+          render={({ field }) => (
+            <FormItem className="flex flex-row items-start space-x-3 space-y-0 rounded-md border p-4 col-span-2">
+              <FormControl>
+                <Checkbox
+                  checked={field.value}
+                  onCheckedChange={field.onChange}
+                />
+              </FormControl>
+                <FormLabel>
+                Accept terms and conditions
+                </FormLabel>
+                <FormDescription>
+                You agree to our{" "}
+                  <Link href="/terms-of-use" className="underline">Terms of Use{" "}</Link> and {" "}
+                  <Link href="/privacy" className="underline">Privacy Policy</Link>.
+                </FormDescription>
+            </FormItem>
+          )}
+        />
+        <SparcleButton type="submit" className="w-full col-span-2">
           Submit
         </SparcleButton>
         {/* <Button type="submit">Submit</Button> */}

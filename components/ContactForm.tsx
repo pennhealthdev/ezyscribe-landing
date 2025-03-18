@@ -19,34 +19,11 @@ import { Input } from "@/components/ui/input"
 import validator from "validator";
 import { startTransition, useState } from "react"
 import { sendDemoReqEmail } from "@/lib/mail"
-import { demoRequest } from "@/app/actions/demoRequest"
+import { contactRequest, demoRequest } from "@/app/actions/sendMails"
 import { SparcleButton } from "./sparkle-button"
+import { CreateDemoSchema } from "@/app/schemas"
 
-const FormSchema = z.object({
-  fName: z.string().min(2, {
-    message: "FIst Name must be at least 2 characters.",
-  }),
-  sName: z.string().min(2, {
-    message: "Last must be at least 2 characters.",
-  }),
-  email: z.string().email().min(2, {
-    message: "Email must be at least 2 characters.",
-  }),
-  mobnumber: z.string().refine(validator.isMobilePhone),
-  sizeOfPeoples: z.number().min(1, {
-    message: "Number of people must be at least 1.",
-  }),
-  location: z.enum(["Al", "Chittagong", "Sylhet", "Rangpur", "Khulna"]),
-  companyName: z.string().min(2, {
-    message: "Company Name must be at least 2 characters.",
-  }),
-  EHR: z.string().min(2, {
-    message: "EHR must be at least 2 characters.",
-  }),
-  MedicalSpeciality: z.string().min(2, {
-    message: "Medical Speciality must be at least 2 characters.",
-  })
-})
+
 
 export function InputForm() {
 
@@ -55,8 +32,8 @@ export function InputForm() {
   const [isSubmittingDemo, setIsSubmittingDemo] = useState(false);
   const [showPopup, setShowPopup] = useState(false);
 
-  const form = useForm<z.infer<typeof FormSchema>>({
-    resolver: zodResolver(FormSchema),
+  const form = useForm<z.infer<typeof CreateDemoSchema>>({
+    resolver: zodResolver(CreateDemoSchema),
     defaultValues: {
       fName: "",
       sName: "",
@@ -71,12 +48,12 @@ export function InputForm() {
   })
 
 
-  function onSubmit(data: z.infer<typeof FormSchema>) {
+  function onSubmit(data: z.infer<typeof CreateDemoSchema>) {
     setError("");
     setSuccess("");
     setIsSubmittingDemo(true);
     startTransition(() => {
-      demoRequest(data).then((data) => {
+      contactRequest(data).then((data) => {
           toast.success("Form Submitted", {
             description:
               "Your form has been submitted successfully and will be processed shortly.",
