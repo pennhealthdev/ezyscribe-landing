@@ -18,13 +18,7 @@ export function HeroSection() {
     const heroRef = useRef<HTMLDivElement>(null);
 
     useGSAP(() => {
-        // gsap.from('.hero-content', {
-        //     opacity: 0,
-        //     y: 100,
-        //     duration: 1,
-        //     ease: 'power4.out',
-        //     stagger: 0.2,
-        // });
+
         gsap.fromTo('.main-tool-bar', {
             opacity: 0,
             y: -100,
@@ -61,12 +55,12 @@ export function HeroSection() {
             scale: 1.3,
         })
 
-        gsap.to('.landing', {
-            opacity: 0,
-            backgroundPosition: '-70%, top center, center 30%, center 100%',
-            stagger: 0.2,
-            paused: true
-        })
+        // gsap.to('.landing', {
+        //     opacity: 0,
+        //     backgroundPosition: '-70%, top center, center 30%, center 100%',
+        //     stagger: 0.2,
+        //     paused: true
+        // })
 
         // const handleMouseMove = (event: MouseEvent) => {
         //     const landing = document.querySelector('.landing');
@@ -169,7 +163,7 @@ export function HeroSection() {
 
 
 
-                    <SparcleButton className="hero-content">
+                    <SparcleButton className="hero-content" link href="#contact">
                         Contact Support
                     </SparcleButton>
                 </div>
@@ -228,6 +222,7 @@ export function HeroSection() {
                         sizes="(max-width: 3060px) 100vw, 3060px"
                         objectPosition="top center"
                         quality={100}
+                        priority
                     />
                 </div>
             </div>

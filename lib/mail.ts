@@ -29,7 +29,7 @@ export const sendDemoReqEmail = async (
   try {
     const info = await transporter.sendMail({
       from: process.env.MAIL_USER,
-      to: "business@Pennhealthinfo.com , deepeshm@Pennhealthinfo.com , ram@pennhealthinfo.com", 
+      to: "business@Pennhealthinfo.com , ezy_support@Pennhealthinfo.com", 
       subject: "Ezyscribe Demo Request",
       priority: "high",
       html: `
@@ -200,7 +200,7 @@ export const send7DayDemoReqEmail = async (
   try {
     const info = await transporter.sendMail({
       from: process.env.MAIL_USER,
-      to: "business@Pennhealthinfo.com , deepeshm@Pennhealthinfo.com , ram@pennhealthinfo.com", 
+      to: "business@Pennhealthinfo.com , ezy_support@Pennhealthinfo.com", 
       subject: "Ezyscribe Demo Request",
       priority: "high",
       html: `
@@ -364,7 +364,7 @@ export const sendDemoReqStartEmail = async (
   try {
     const info = await transporter.sendMail({
       from: process.env.MAIL_USER,
-      to: "business@Pennhealthinfo.com , deepeshm@Pennhealthinfo.com , ram@pennhealthinfo.com",
+      to: "business@Pennhealthinfo.com , ezy_support@Pennhealthinfo.com",
       subject: "Ezyscribe Demo Request",
       priority: "high",
       html: `

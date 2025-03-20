@@ -1115,3 +1115,32 @@ body {
   background-size: 100%;
   background-repeat: no-repeat;
 }
+
+.item {
+  @apply w-full h-full flex absolute inset-0 overflow-hidden items-center !rounded-2xl
+}
+
+
+
+.item_content {
+  flex-flow: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 3rem;
+  display: flex;
+  position: relative;
+@apply sm:w-1/2 p-5 sm:p-12
+}
+
+.item_media {
+  height: 100%;
+
+}
+
+
+@media (max-width: 575.98px) {
+  .item {
+    display: flex;
+    flex-direction: column;
+  }
+}

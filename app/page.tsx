@@ -285,6 +285,7 @@ export default function Home() {
           scrub: true,
           // markers: true,
           pin: true,
+          invalidateOnRefresh: true
         }
       });
 
@@ -297,6 +298,7 @@ export default function Home() {
       scrub: true,
       //markers: true,
       pinSpacing: true,
+      invalidateOnRefresh: true
     });
 
     // Hide all items initially except the first one
@@ -321,6 +323,7 @@ export default function Home() {
         start: 'top top',
         end: '+=400%',
         scrub: 0.5,
+        invalidateOnRefresh: true
       },
     });
 
@@ -382,6 +385,70 @@ export default function Home() {
       }, position + duration * 0.2);
     });
 
+    const scrollSection = document.querySelectorAll(".scroll-section");
+
+    scrollSection.forEach((section) => {
+      const wrapper = section.querySelector(".wrapper");
+      const items = wrapper?.querySelectorAll(".item");
+
+      // Initialize
+      let direction = null;
+
+      if (section.classList.contains("vertical-section")) {
+        direction = "vertical";
+      } else if (section.classList.contains("horizontal-section")) {
+        direction = "horizontal";
+      }
+
+      initScroll(section, items, direction);
+    });
+
+    function initScroll(section: any, items: any, direction: any) {
+      // Initial states
+      items.forEach((item: any, index: any) => {
+        if (index !== 0) {
+          direction == "horizontal"
+            ? gsap.set(item, { xPercent: 100 })
+            : gsap.set(item, { yPercent: 100 });
+        }
+      });
+
+      const timeline = gsap.timeline({
+        scrollTrigger: {
+          trigger: section,
+          pin: true,
+          start: "top top",
+          end: () => `+=${items.length * 100}%`,
+          scrub: 1,
+          invalidateOnRefresh: true
+          // markers: true,
+        },
+        defaults: { ease: "none" }
+      });
+      items.forEach((item: any, index: any) => {
+        timeline.to(item, {
+          scale: 0.9,
+          borderRadius: "10px"
+        });
+
+        direction == "horizontal"
+          ? timeline.to(
+            items[index + 1],
+            {
+              xPercent: 0
+            },
+            "<"
+          )
+          : timeline.to(
+            items[index + 1],
+            {
+              yPercent: -10,
+            },
+            "<"
+          );
+      });
+    }
+
     let tl2 = gsap.timeline({
       scrollTrigger: {
         trigger: ".main",
@@ -411,7 +478,6 @@ export default function Home() {
         stagger: 0.2 // Stagger the animation
       });
 
-
     let tl3 = gsap.timeline({
       scrollTrigger: {
         trigger: cta.current,
@@ -434,42 +500,7 @@ export default function Home() {
       duration: 0.5, // Faster animation
       animation: "spring(1, 80, 10, 10)"
     });
-
-    let tl4 = gsap.timeline({
-      scrollTrigger: {
-        trigger: "#how-we-work",
-        start: "top bottom",
-        end: "bottom bottom",
-        scrub: true,
-        //markers: true,
-        fastScrollEnd: true
-      }
-    });
-
-    const workCardLeftElements = gsap.utils.toArray('.work-left');
-    const workCardRightElements = gsap.utils.toArray('.work-right');
-    const workstaggeredElements = [];
-
-    for (let i = 0; i < Math.max(workCardLeftElements.length, workCardRightElements.length); i++) {
-      if (workCardLeftElements[i]) workstaggeredElements.push(workCardLeftElements[i]);
-      if (workCardRightElements[i]) workstaggeredElements.push(workCardRightElements[i]);
-    }
-
-    tl4.addLabel('start')
-      .from(workstaggeredElements, {
-        x: (index) => index % 2 === 0 ? '-100%' : '100%',
-        // rotation: (index) => index % 2 === 0 ? -45 : 45,
-        opacity: 0,
-        duration: 0.7, // Faster animation
-        stagger: 0.2 // Stagger the animation
-      });
-
-
-
-  },);
-
-  const [src, setSrc] = useState('/testimonial1.jpg');
-
+  })
 
 
   return (
@@ -479,7 +510,7 @@ export default function Home() {
       <main className="relative">
 
         <HeroSection />
-        
+
         <section className="relative flex flex-col bg-[#090909] mt-10">
           <div className="bg-gradient-to-r from-[#090909] to-white/0 z-10 w-[40%] h-full pointer-events-none absolute hidden sm:block sm:left-20 top-0"></div>
           <div className="bg-gradient-to-r from-[#090909] to-white/0 z-10 w-[40%] h-full pointer-events-none absolute hidden sm:block sm:left-20 top-0"></div>
@@ -523,14 +554,14 @@ export default function Home() {
                   <div className=" flex justify-between gap-2">
                     <ArrowRight className="w-28 text-background p-1 h-6.5 bg-[#1B1626] rounded-full" />
                     <p className="text-background text-base font-normal">
-                    EzyScribe by Pennhealth Informatics LLC is our in-house AI platform, a cutting-edge ambient AI scribe designed to deliver highly accurate medical documentation while integrating seamlessly into your workflow. EzyScribe’s user-friendly interface, professional assistance, and secure platform enable clinicians to focus more on patient care and less on administrative tasks. Our AI-driven solution ensures real-time, accurate documentation, helping providers enhance efficiency, reduce costs, and improve overall patient outcomes.
+                      EzyScribe by Pennhealth Informatics LLC is our in-house AI platform, a cutting-edge ambient AI scribe designed to deliver highly accurate medical documentation while integrating seamlessly into your workflow. EzyScribe’s user-friendly interface, professional assistance, and secure platform enable clinicians to focus more on patient care and less on administrative tasks. Our AI-driven solution ensures real-time, accurate documentation, helping providers enhance efficiency, reduce costs, and improve overall patient outcomes.
                     </p>
                   </div>
 
                   <div className=" flex justify-between gap-2">
                     <ArrowRight className="w-28 text-background p-1 h-6.5 bg-[#1B1626] rounded-full" />
                     <p className="text-background text-base font-normal">
-                    With a commitment to innovation and excellence, Pennhealth Informatics is transforming clinical documentation by combining advanced AI technology with a deep understanding of healthcare workflows. So experience effortless and accurate documentation with EzyScribe — Your AI-powered medical solution.
+                      With a commitment to innovation and excellence, Pennhealth Informatics is transforming clinical documentation by combining advanced AI technology with a deep understanding of healthcare workflows. So experience effortless and accurate documentation with EzyScribe — Your AI-powered medical solution.
                     </p>
                   </div>
 
@@ -598,104 +629,134 @@ export default function Home() {
           </div>
         </section>
 
-        <section ref={sectionQuoteRef} className=" h-[40vh] py-20 aboutus p-10">
+        <section ref={sectionQuoteRef} className=" h-[45vh] py-20 aboutus p-10">
           <div id="quote" ref={quoteRef} className="text-3xl sm:text-5xl max-w-6xl mx-auto font-medium text-background">
-            Built with advanced AI technology, EzyScribe adapts easily to your practice, offering unparalleled accuracy, amiable design, and robust security.
+            Built with advanced AI technology, EzyScribe adapts easily 'to your practice, offering unparalleled accuracy, amiable design, and robust security.
 
           </div>
         </section>
 
-        <section id="how-we-work" className="overflow-hidden">
-          <div className="max-w-6xl w-full pb-20 px-5 ">
+        <section id="how-we-work" className=" howwework scroll-section vertical-section h-full">
+          <div className="max-w-6xl w-full pb-20 px-5 wrapper overflow-hidden h-screen">
             <div className="bg-[#1B1626] self-start text-left px-5 py-2 max-w-fit rounded-full text-background font-normal">
               How does Ezyscribe work?
             </div>
+            {/* md:grid-cols-[1.5fr,3fr] */}
+            <div role="list" className="list justify-start items-center h-full flex relative p-1 space-y-10 mt-10">
 
-            <div className="grid grid-cols-1 md:grid-cols-[1.5fr,3fr] gap-5 mt-5">
-              <div
-                className=" w-full h-96 sm:h-full rounded-2xl flex flex-col justify-end relative overflow-hidden p-5 bg-[#1a1a1a] bg-[url('/Ellipse 4078.png')] how-card-1 work-left"
-                onMouseEnter={() => setSrc('/Voice-Text-Bold.gif')}
-                onMouseLeave={() => setSrc('/testimonial1.jpg')}
-              >
-                <Image
-                  id="animatedGif"
-                  src='/Voice-Text-Bold.gif'
-                  fill
-                  objectFit="cover"
-                  objectPosition="center"
-                  alt=""
-                  className="z-0 -mt-24 p-5"
-                  quality={100}
-                />
+              <div className="item  bg-[#1a1a1a] bg-[url('/Ellipse 4078.png')] how-card-1 work-left">               
+                <div className="item_content">
+                  <h2 className="mb-4 text-4xl text-background font-medium">Simply initiate recording.</h2>
+                  <p className="item_p text-background/70 text-lg">
+                    EzyScribe will start listening to your patient encounter with a single click on Record. Our advanced speech recognition technology will immediately generate the transcript.
+                  </p>
+                </div>
+                <div className="relative item_media sm:w-full w-[200%]">
+                  <Image
+                    fill
+                    id="animatedGif"
+                    src='/Voice-Text-Bold.gif'
+                    objectFit="contain"
+                    objectPosition="center"
+                    alt=""
+                    className="z-0 p-5 "
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 100vw, 100vw"
+                    unoptimized
+                    priority
+                  />
 
-                <h5 className="text-base font-medium text-background z-10">Simply initiate recording.</h5>
-                <p className="text-sm font-thin mt-2 text-background z-10">
-                  EzyScribe will start listening to your patient encounter with a single click on Record. Our advanced speech recognition technology will immediately generate the transcript.
-                </p>
+                </div>
+                {/* <video src="/Voice-Text-Bold.gif"   muted loop className="item_media"></video> */}
               </div>
 
-              <div className="bg-blue-900 p-5 relative overflow-hidden rounded-2xl bg-opacity-40 min-h-96 justify-end text-left flex flex-col bg-[url('/ellipse2.png')] bg-cover bg-no-repeat bg-left work-right">
-                <Image
-                  id="animatedGif"
-                  src='/Soap-note.gif'
-                  fill
-                  objectFit="cover"
-                  objectPosition="center"
-                  alt=""
-                  className="z-0 -mt-2 p-5"
-                  quality={100}
-                />
-                <h5 className="text-base font-medium text-background z-10">Ambient AI technology.</h5>
-                <p className="text-sm font-thin mt-2 text-background z-10">
+              <div className="item bg-blue-900 bg-[url('/ellipse2.png')] bg-cover bg-no-repeat bg-left work-right">
+                
+                <div className="item_content">
+                  <h2 className="mb-4 text-4xl font-bold text-background">Ambient AI technology.</h2>
+                  <p className="item_p text-background/70 text-lg">
                   Our cutting-edge ambient AI technology will quickly process the recorded audio to prepare a summarized report in customized format.
-                </p>
+                  </p>
+                </div>
+                <div className="relative item_media sm:w-full w-[120%]">
+                  <Image
+                    id="animatedGif"
+                    src='/Soap-note.gif'
+                    fill
+                    objectFit="contain"
+                    objectPosition="center"
+                    alt=""
+                    className="z-0"
+                    sizes="(max-width: 768px) 100vw, (max-width: 2000px) 200vw, 100vw"
+                    unoptimized
+                    priority
+
+                  />
+
+                </div>
+
               </div>
 
 
-            </div>
-            <div className="grid grid-cols-1 md:grid-cols-[3fr,1.5fr] gap-5 mt-5">
-              <div
-                className=" w-full h-96 sm:h-full rounded-2xl flex flex-col justify-end relative overflow-hidden p-5 bg-[#1a1a1a] bg-[url('/Ellipse4078.png')] bg-left-top work-left"
-                onMouseEnter={() => setSrc('/Voice-Text-Bold.gif')}
-                onMouseLeave={() => setSrc('/testimonial1.jpg')}
-              >
-                <Image
-                  id="animatedGif"
-                  src='/Title-new.gif'
-                  fill
-                  objectFit="contain"
-                  objectPosition="center"
-                  alt=""
-                  className="z-0 -mt-10 p-5"
-                  quality={100}
-                />
-
-                <h5 className="text-base font-medium text-background z-10">Human scribe support.</h5>
-                <p className="text-sm font-thin mt-2 text-background z-10">
+              <div className="item  bg-[#1a1a1a] bg-[url('/Ellipse4078.png')] bg-left-top work-left bg-no-repeat">
+               
+                <div className="item_content">
+                  <h2 className="mb-4 text-4xl font-bold text-background">Human scribe support.</h2>
+                  <p className="item_p text-background/70 text-lg">
                   A dedicated scribe can be assigned on request to review the reports prepared by AI and manually paste the notes into EHR within turnaround time (TAT)
-                </p>
+                  </p>
+                </div>
+                <div className="relative item_media sm:w-full w-[100%]">
+                  <Image
+                    id="animatedGif"
+                     src='/Title-new.gif'
+                    fill
+                    objectFit="contain"
+                    objectPosition="center"
+                    alt=""
+                    className="z-0"
+                    sizes="(max-width: 768px) 100vw, (max-width: 2000px) 200vw, 100vw"
+                    unoptimized
+                    priority
+                  />
+
+                </div>
               </div>
 
-              <div className="bg-blue-900 p-5 relative overflow-hidden rounded-2xl bg-opacity-40 min-h-96 justify-end text-left flex flex-col bg-[url('/ellipse2.png')] bg-cover bg-no-repeat bg-left work-right">
-                <Image
-                  id="animatedGif"
-                  src='/Final2.gif'
-                  fill
-                  objectFit="cover"
-                  objectPosition="center"
-                  alt=""
-                  className="z-0 -mt-20 p-5"
-                  quality={100}
-                />
-                <h5 className="text-base font-medium text-background z-10">Live status update</h5>
-                <p className="text-sm font-thin mt-2 text-background z-10">
+              <div className="item  bg-[#1a1a1a] bg-[url('/Ellipse 4078.png')] how-card-1 work-left">
+          
+                <div className="item_content">
+                  <h2 className="mb-4 text-4xl font-bold text-background">Live status update</h2>
+                  <p className="item_p text-background/70 text-lg">
                   You will receive real-time updates as reports are prepared and uploaded into EHR and completed reports can be accessed for review from your dashboard.  Data will be stored securely in our cloud-based server and automatically deleted after 30 days.
-                </p>
+                  </p>
+                </div>
+                <div className="relative item_media sm:w-full w-[500%]">
+                  <Image
+                    id="animatedGif"
+                     src='/Final2.gif'
+                    fill
+                    objectFit="contain"
+                    objectPosition="center"
+                    alt=""
+                    className="z-0"
+                    sizes="(max-width: 768px) 100vw, (max-width: 2000px) 200vw, 100vw"
+                    unoptimized
+                    priority
+                  />
+
+                </div>
+
               </div>
 
 
             </div>
+            {/* <div className="grid grid-cols-1 md:grid-cols-[3fr,1.5fr] gap-5 mt-5">
+            
+
+            </div> */}
           </div>
+
+
         </section>
 
         <section className="main overflow-hidden py-20 p-5" id="benefits">
@@ -744,14 +805,14 @@ export default function Home() {
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-[3fr,1.5fr] gap-5 mt-5">
-              <div className="bg-blue-900 p-10 relative  overflow-hidden rounded-2xl bg-opacity-40">
-                <svg viewBox="0 0 162 128" aria-hidden="true" className="  w-40 absolute fill-[#090909] rotate-180 -bottom-10 right-10">
+              <div className="bg-blue-900 sm:p-10 p-5 relative  overflow-hidden rounded-2xl bg-opacity-40 ">
+                <svg viewBox="0 0 162 128" aria-hidden="true" className="  w-40 absolute fill-[#090909] rotate-180 -bottom-10 sm:right-10 right-0 z-10">
                   <path d="M65.5697 118.507L65.8918 118.89C68.9503 116.314 71.367 113.253 73.1386 109.71C74.9162 106.155 75.8027 102.28 75.8027 98.0919C75.8027 94.237 75.16 90.6155 73.8708 87.2314C72.5851 83.8565 70.8137 80.9533 68.553 78.5292C66.4529 76.1079 63.9476 74.2482 61.0407 72.9536C58.2795 71.4949 55.276 70.767 52.0386 70.767C48.9935 70.767 46.4686 71.1668 44.4872 71.9924L44.4799 71.9955L44.4726 71.9988C42.7101 72.7999 41.1035 73.6831 39.6544 74.6492C38.2407 75.5916 36.8279 76.455 35.4159 77.2394L35.4047 77.2457L35.3938 77.2525C34.2318 77.9787 32.6713 78.3634 30.6736 78.3634C29.0405 78.3634 27.5131 77.2868 26.1274 74.8257C24.7483 72.2185 24.0519 69.2166 24.0519 65.8071C24.0519 60.0311 25.3782 54.4081 28.0373 48.9335C30.703 43.4454 34.3114 38.345 38.8667 33.6325C43.5812 28.761 49.0045 24.5159 55.1389 20.8979C60.1667 18.0071 65.4966 15.6179 71.1291 13.7305C73.8626 12.8145 75.8027 10.2968 75.8027 7.38572C75.8027 3.6497 72.6341 0.62247 68.8814 1.1527C61.1635 2.2432 53.7398 4.41426 46.6119 7.66522C37.5369 11.6459 29.5729 17.0612 22.7236 23.9105C16.0322 30.6019 10.618 38.4859 6.47981 47.558L6.47976 47.558L6.47682 47.5647C2.4901 56.6544 0.5 66.6148 0.5 77.4391C0.5 84.2996 1.61702 90.7679 3.85425 96.8404L3.8558 96.8445C6.08991 102.749 9.12394 108.02 12.959 112.654L12.959 112.654L12.9646 112.661C16.8027 117.138 21.2829 120.739 26.4034 123.459L26.4033 123.459L26.4144 123.465C31.5505 126.033 37.0873 127.316 43.0178 127.316C47.5035 127.316 51.6783 126.595 55.5376 125.148L55.5376 125.148L55.5477 125.144C59.5516 123.542 63.0052 121.456 65.9019 118.881L65.5697 118.507Z" id="b56e9dab-6ccb-4d32-ad02-6b4bb5d9bbeb">
                   </path>
                   <use x="86" href="#b56e9dab-6ccb-4d32-ad02-6b4bb5d9bbeb"></use>
                 </svg>
                 <h4 className="text-xl font-medium mt-12 text-blue-50">"EzyScribe really allows me to easily record a patient encounter without worrying about missing important details. The AI-powered documentation is fast and accurate, saving my valuable time. With EzyScribe, I can focus more on patient care instead of paperwork as it has truly simplifies my workflow and reduced my administrative burden”.</h4>
-                <h5 className="text-lg font-medium mt-10 text-blue-200">Dr. Alexander Blackwell</h5>
+                <h5 className="text-lg font-medium mt-10 text-blue-200 z-20 relative">Dr. Alexander Blackwell</h5>
               </div>
               <div className=" w-full sm:h-full h-96 rounded-2xl bg-center bg-cover flex items-end justify-center relative overflow-hidden">
                 <div className=" absolute bottom-0 right-0 left-0 top-0 h-full w-full bg-gradient-to-t z-[1] from-[#090909] to-black/50"></div>
@@ -776,7 +837,7 @@ export default function Home() {
                   <use x="86" href="#b56e9dab-6ccb-4d32-ad02-6b4bb5d9bbeb"></use>
                 </svg>
                 <h4 className="text-xl font-medium mt-12 text-blue-50">“The scribe support provided by EzyScribe really an add on since I can always ensure that documentation is accurate”.</h4>
-                <h5 className="text-lg font-medium mt-10 text-blue-200">Dr. Nathaniel Pierce</h5>
+                <h5 className="text-lg font-medium mt-10 text-blue-200 relative z-10">Dr. Nathaniel Pierce</h5>
               </div>
 
 
