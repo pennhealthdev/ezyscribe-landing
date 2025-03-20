@@ -631,7 +631,7 @@ export default function Home() {
 
         <section ref={sectionQuoteRef} className=" h-[45vh] py-20 aboutus p-10">
           <div id="quote" ref={quoteRef} className="text-3xl sm:text-5xl max-w-6xl mx-auto font-medium text-background">
-            Built with advanced AI technology, EzyScribe adapts easily 'to your practice, offering unparalleled accuracy, amiable design, and robust security.
+            Built with advanced AI technology, EzyScribe adapts easily to your practice, offering unparalleled accuracy, amiable design, and robust security.
 
           </div>
         </section>
