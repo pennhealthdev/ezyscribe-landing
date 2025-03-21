@@ -110,12 +110,12 @@ export function NavigationMain() {
             </> */
           ))}
           {/* <NavigationMenuSub /> */}
-          
+
         </div>
 
-        <SparcleButton className="hero-content hidden sm:block" link href='https://app.ezyscribe.com' target='_blank'>
-              Sign In
-          </SparcleButton>
+        <SparcleButton className="hidden sm:block" link href='https://app.ezyscribe.com' target='_blank'>
+          Sign In
+        </SparcleButton>
 
         {/* Mobile Menu Button */}
         <button
@@ -129,7 +129,7 @@ export function NavigationMain() {
         {isMobileMenuOpen && (
           <div className="absolute top-full left-0 right-0 z-[999] bg-black text-background   md:hidden">
             <div className="flex flex-col p-4">
-              {links.map((item,index) => (
+              {links.map((item, index) => (
                 <a
                   key={index}
                   href={item.href}
@@ -139,6 +139,9 @@ export function NavigationMain() {
                   {item.title}
                 </a>
               ))}
+              <SparcleButton className=" block sm:hidden" link href='https://app.ezyscribe.com' target='_blank'>
+                Sign In
+              </SparcleButton>
             </div>
           </div>
         )}
