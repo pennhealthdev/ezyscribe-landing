@@ -40,7 +40,7 @@ export function InputForm() {
       email: "",
       mobnumber: "",
       sizeOfPeoples: 1,
-      location: "Al",
+      location: "",
       companyName: "",
       EHR: "",
       MedicalSpeciality: "",
