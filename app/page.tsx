@@ -851,7 +851,7 @@ export default function Home() {
           <div className="max-w-6xl w-full cta-inner  sm:px-40 p-5 mx-auto bg-[#1A1A1A] sm:h-96 h-[38rem] rounded-3xl grid grid-cols-1 md:grid-cols-[1.5fr,1fr] overflow-hidden relative">
             <div className="text-background self-center">
               <h3 className="text-5xl mb-10">Your Medical AI partner in clinical documentation</h3>
-              <Custombutton>
+              <Custombutton href="#contact">
                 Learn More
               </Custombutton>
             </div>
@@ -984,7 +984,7 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-[1fr,1fr] sm:p-10 p-0 footer-inner">
             <div className="space-y-10 text-background">
               <h3 className="text-5xl font-medium text-background">Join EzyScribe Today</h3>
-              <Custombutton>
+              <Custombutton href="#contact">
                 Learn More
               </Custombutton>
             </div>

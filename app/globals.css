@@ -622,12 +622,13 @@ section{
   font-size: inherit;
   font-family: inherit;
 } */
-button.learn-more {
+button.learn-more, a.learn-more {
   width: 12rem;
   height: auto;
   /* @apply bg-background */
 }
-button.learn-more .circle {
+
+button.learn-more .circle, a.learn-more .circle {
   transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
   position: relative;
   display: block;
@@ -637,12 +638,12 @@ button.learn-more .circle {
   background: #2f3192;
   border-radius: 1.625rem;
 }
-button.learn-more .square {
+button.learn-more .square, a.learn-more .square {
   /* clip-path: path("M 10,10 L 90,50 L 100,40 L 100,10 L 110,0 Z"); */
   transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
   @apply bg-[#2f3192] w-[75%] right-0 top-0 z-[0] absolute h-full rounded-full
 }
-button.learn-more .circle .icon {
+button.learn-more .circle .icon, a.learn-more .circle .icon {
   transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
   position: absolute;
   top: 0;
@@ -650,7 +651,7 @@ button.learn-more .circle .icon {
   margin: auto;
   background: #fff;
 }
-button.learn-more .circle .icon.arrow {
+button.learn-more .circle .icon.arrow,a.learn-more .circle .icon.arrow {
   transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
   left: 0.625rem;
   width: 1.125rem;
@@ -658,7 +659,7 @@ button.learn-more .circle .icon.arrow {
   background: none;
   z-index: 1;
 }
-button.learn-more .circle .icon.arrow::before {
+button.learn-more .circle .icon.arrow::before, a.learn-more .circle .icon.arrow::before {
   position: absolute;
   content: "";
   top: -0.25rem;
@@ -669,7 +670,7 @@ button.learn-more .circle .icon.arrow::before {
   border-right: 0.125rem solid #fff;
   transform: rotate(45deg);
 }
-button.learn-more .button-text {
+button.learn-more .button-text, a.learn-more .button-text {
   transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
   position: absolute;
   top: 0;
@@ -685,18 +686,18 @@ button.learn-more .button-text {
   text-transform: uppercase;
   z-index: 2;
 }
-button:hover .circle {
+button:hover .circle, a:hover .circle {
   width: 100%;
 }
-button:hover .square {
+button:hover .square, a:hover .square {
   width: 100%;
 }
-button:hover .circle .icon.arrow {
+button:hover .circle .icon.arrow, a:hover .circle .icon.arrow {
   transform: rotate(-90deg);
   background: #fff;
   transform: translate(1rem, 0);
 }
-button:hover .button-text {
+button:hover .button-text, a:hover .button-text {
   color: #fff;
 }
 

@@ -193,7 +193,7 @@ export function HeroSection() {
                                     </button>
                                 </div>
                             </DialogTrigger>
-                            <DialogContent className="sm:max-w-[425px] md:max-w-6xl">
+                            <DialogContent className="sm:max-w-[425px] md:max-w-6xl h-screen">
 
                                 <DialogHeader className="hidden">
                                     <DialogTitle>Edit profile</DialogTitle>
