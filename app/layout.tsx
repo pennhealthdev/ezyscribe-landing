@@ -87,8 +87,9 @@ export default function RootLayout({
         className={`${resonate.className} antialiased w-full`}
       >
         
-        <noscript>
-          <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-K6SV6M38" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+        {/* <noscript>
+          <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-K6SV6M38" height="0" width="0" style="display:none;visibility:hidden"></iframe>
+          </noscript> */}
         {/* {children} */}
         <Toaster />
         <SmoothScrollProvider>{children}</SmoothScrollProvider>
