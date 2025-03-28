@@ -4,6 +4,7 @@ import "./globals.css";
 import { SmoothScrollProvider } from "@/components/providers/smooth-scroll-provider";
 import localFont from 'next/font/local'
 import { Toaster } from "@/components/ui/sonner";
+import { GoogleTagManager } from '@next/third-parties/google'
 
 
 const resonate = localFont({
@@ -72,15 +73,22 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      {/* <head>
-        <script
-          crossOrigin="anonymous"
-          src="//unpkg.com/react-scan/dist/auto.global.js"
-        />
-      </head> */}
+      <GoogleTagManager gtmId="GTM-K6SV6M38" />
+      {/* <Head> */}
+     {/* <!-- Google Tag Manager --> */}
+     {/* <script>(function(w,d,s,l,i){w[l] = w[l] || [];
+        w[l].push({'gtm.start': new Date().getTime(),event:'gtm.js'});
+        var f=d.getElementsByTagName(s)[0], j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';
+        j.async=true;
+        j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+        })(window,document,'script','dataLayer','GTM-K6SV6M38')</script>
+      </Head> */}
       <body
         className={`${resonate.className} antialiased w-full`}
       >
+        
+        <noscript>
+          <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-K6SV6M38" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         {/* {children} */}
         <Toaster />
         <SmoothScrollProvider>{children}</SmoothScrollProvider>
