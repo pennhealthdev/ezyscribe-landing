@@ -554,14 +554,14 @@ export default function Home() {
                   <div className=" flex justify-between gap-2">
                     <ArrowRight className="w-28 text-background p-1 h-6.5 bg-[#1B1626] rounded-full" />
                     <p className="text-background text-base font-normal">
-                      EzyScribe by Pennhealth Informatics LLC is our in-house AI platform, a cutting-edge ambient AI scribe designed to deliver highly accurate medical documentation while integrating seamlessly into your workflow. EzyScribe’s user-friendly interface, professional assistance, and secure platform enable clinicians to focus more on patient care and less on administrative tasks. Our AI-driven solution ensures real-time, accurate documentation, helping providers enhance efficiency, reduce costs, and improve overall patient outcomes.
+                    EzyScribe by Pennhealth Informatics LLC is our in-house AI medical scribe platform designed to deliver highly accurate medical documentation while integrating seamlessly into your workflow. EzyScribe’s user-friendly interface, professional assistance, and secure platform enable clinicians to focus more on patient care and less on administrative tasks. Our AI-driven solution ensures real-time, accurate documentation, helping providers enhance efficiency, reduce costs, and improve overall patient outcomes.
                     </p>
                   </div>
 
                   <div className=" flex justify-between gap-2">
                     <ArrowRight className="w-28 text-background p-1 h-6.5 bg-[#1B1626] rounded-full" />
                     <p className="text-background text-base font-normal">
-                      With a commitment to innovation and excellence, Pennhealth Informatics is transforming clinical documentation by combining advanced AI technology with a deep understanding of healthcare workflows. So experience effortless and accurate documentation with EzyScribe — Your AI-powered medical solution.
+                    With a commitment to innovation and excellence, Pennhealth Informatics is transforming clinical documentation by combining advanced AI technology with a deep understanding of healthcare workflows. So experience effortless and accurate documentation with EzyScribe — Your AI-powered medical scribing solution.
                     </p>
                   </div>
 
@@ -615,12 +615,12 @@ export default function Home() {
                   <div className=" flex justify-between gap-2">
                     <ArrowRight className="w-28 text-background p-1 h-6.5 bg-[#1B1626] rounded-full" />
                     <p className="text-background text-base font-normal">
-                      Ezyscribe by Pennhealth Informatics is an advanced ambient AI medical scribe designed to deliver highly accurate clinical documentation that fits effortlessly into your workflow. More than just another documentation tool, it’s your trusted partner in care. Built with advanced AI technology, EzyScribe adapts easily to your practice, offering unparalleled accuracy, amiable design, and robust security.
+                    Ezyscribe is an advanced ambient AI medical scribe designed to deliver highly accurate clinical documentation that fits effortlessly into your workflow. More than just another documentation tool, it’s your trusted partner in care. Built with advanced AI technology, EzyScribe adapts easily to your practice, offering unparalleled accuracy, amiable design, and robust security.
                     </p>
                   </div>
                   <div className=" flex justify-between gap-2">
                     <ArrowRight className="w-28 text-background p-1 h-6.5 bg-[#1B1626] rounded-full" />
-                    <p className="text-background text-base font-normal">Whether you're a solo practitioner juggling multiple responsibilities or part of a large healthcare system looking for efficiency, EzyScribe works seamlessly to fit your demands. Our user-friendly interface and top-tier security allow you to focus on what is most important—your patients. With dedicated support always available, our professionals are here to ensure your success. So let’s redefine the way you document care, together.
+                    <p className="text-background text-base font-normal">Whether you're a solo practitioner juggling multiple responsibilities or part of a large healthcare system looking for efficiency, EzyScribe works seamlessly to fit your demands. Our user-friendly interface and top-tier security allow you to focus on what is most important—your patients. Our professionals are always available with dedicated support to ensure top-quality medical documentation in EHR. So let’s redefine the way you document care, together.
                     </p>
                   </div>
                 </div>

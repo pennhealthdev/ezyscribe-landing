@@ -62,8 +62,8 @@ const resonate = localFont({
 // });
 
 export const metadata: Metadata = {
-  title: "Ezyscribe",
-  description: "Your AI-Powered Medical Scribing solution.",
+  title: "EzyScribe: Your AI Medical Scribing Partner",
+  description: "EzyScribe by Pennhealth Informatics is an AI-powered medical scribing solution that delivers highly accurate documentation and integrates seamlessly into your clinical workflow.",
 };
 
 export default function RootLayout({

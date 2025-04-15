@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /privacy
+Disallow: /terms-of-use
+
+Sitemap: https://ezyscribe.com/sitemap.xml
