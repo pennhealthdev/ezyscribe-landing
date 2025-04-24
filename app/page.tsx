@@ -150,7 +150,7 @@ const FAQ_ITEMS = [
   {
     name: 'Dr. Alexander Blackwell',
     designation: 'MD',
-    description: '"EzyScribe really allows me to easily record a patient encounter without worrying about missing important details. The AI-powered documentation is fast and accurate, saving my valuable time. With EzyScribe, I can focus more on patient care instead of paperwork as it has truly simplifies my workflow and reduced my administrative burden”.',
+    description: '"EzyScribe really allows me to easily record a patient encounter without worrying about missing important details. The AI-Medical powered documentation is fast and accurate, saving my valuable time. With EzyScribe, I can focus more on patient care instead of paperwork as it has truly simplifies my workflow and reduced my administrative burden”.',
     image: '',
   },
   {
@@ -915,7 +915,7 @@ export default function Home() {
                 <AccordionItem value="item-1">
                   <AccordionTrigger >How do I get started using EzyScribe?  </AccordionTrigger>
                   <AccordionContent>
-                    To get started with EzyScribe, simply click here to request a demo. Our team will walk you through the setup and implementation process, making sure your transition to our AI-powered, asynchronous ambient experience platform is smooth and effortless.
+                    To get started with EzyScribe, simply click here to request a demo. Our team will walk you through the setup and implementation process, making sure your transition to our AI-Medical powered, asynchronous ambient experience platform is smooth and effortless.
                   </AccordionContent>
                 </AccordionItem>
                 <AccordionItem value="item-2">
@@ -927,7 +927,7 @@ export default function Home() {
                 <AccordionItem value="item-3">
                   <AccordionTrigger>How can our AI assistant improve the quality of your patient care? </AccordionTrigger>
                   <AccordionContent>
-                    EzyScribe improves patient care by automating documentation, allowing physicians to focus more on patients. Its AI-powered ambient scribe technology captures accurate clinical notes in real-time, reducing errors and improving care coordination. For added flexibility, in-person scribe support is available to review, edit and then seamlessly upload the completed notes into your EHR system within the specified turnaround time (TAT), ensuring comprehensive, high-quality documentation and enhancing overall patient outcomes and satisfaction.
+                    EzyScribe improves patient care by automating documentation, allowing physicians to focus more on patients. Its AI-Medical powered ambient scribe technology captures accurate clinical notes in real-time, reducing errors and improving care coordination. For added flexibility, in-person scribe support is available to review, edit and then seamlessly upload the completed notes into your EHR system within the specified turnaround time (TAT), ensuring comprehensive, high-quality documentation and enhancing overall patient outcomes and satisfaction.
                   </AccordionContent>
                 </AccordionItem>
                 <AccordionItem value="item-4">
@@ -937,7 +937,7 @@ export default function Home() {
                   </AccordionContent>
                 </AccordionItem>
                 <AccordionItem value="item-5">
-                  <AccordionTrigger>What specialties can use our AI Scribe? </AccordionTrigger>
+                  <AccordionTrigger>What specialties can use our AI Medical Scribe? </AccordionTrigger>
                   <AccordionContent>
                     EzyScribe is flexible and customizable, making it suitable for a wide range of medical specialities, including primary care, cardiology, orthopedics, mental health, and more.
                   </AccordionContent>

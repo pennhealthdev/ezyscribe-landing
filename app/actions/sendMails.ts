@@ -1,7 +1,7 @@
 "use server";
 
 import * as z from "zod";
-import {  send7DayDemoReqEmail } from "@/lib/mail";
+import {  send7DayDemoReqEmail, sendContactEmail } from "@/lib/mail";
 import {  CreateDemoSchema, TrialDemoSchema } from "../schemas";
 
 export const demoRequest = async (values: z.infer<typeof TrialDemoSchema>)=>{
@@ -24,16 +24,16 @@ export const demoRequest = async (values: z.infer<typeof TrialDemoSchema>)=>{
 };
 
 export const contactRequest = async (values: z.infer<typeof CreateDemoSchema>)=>{
-    const validateFields = TrialDemoSchema.safeParse(values);
+    const validateFields = CreateDemoSchema.safeParse(values);
 
     if(!validateFields.success){
         return{error:"Invalid fields!"};
     };
 
-    const {fName,sName,email,mobnumber,location,companyName,EHR,MedicalSpeciality } = validateFields.data;
+    const {fName,sName,email,mobnumber,location,companyName,EHR,MedicalSpeciality ,sizeOfPeoples } = validateFields.data;
 
     try {
-        await send7DayDemoReqEmail( fName,sName,email,mobnumber,location,companyName,EHR,MedicalSpeciality)
+        await sendContactEmail( fName,sName,email,mobnumber,location,companyName,EHR,MedicalSpeciality, sizeOfPeoples)
         .then(()=>{
             return {success:"Email sent!"}
         });
