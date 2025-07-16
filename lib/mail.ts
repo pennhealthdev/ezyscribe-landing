@@ -30,7 +30,7 @@ export const sendDemoReqEmail = async (
     const info = await transporter.sendMail({
       from: process.env.MAIL_USER,
       to: "business@Pennhealthinfo.com , ezy_support@Pennhealthinfo.com", 
-      subject: "Ezyscribe Demo Request",
+      subject: "EzyScribe Demo Request",
       priority: "high",
       html: `
         <!DOCTYPE html>
@@ -116,7 +116,7 @@ export const sendDemoReqEmail = async (
               <tr>
                 <td class="sm-px-6" style="border-radius: 4px; background-color: #fffffe; padding: 48px; font-size: 16px; color: #334155; box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05)">
                   <h1 class="sm-leading-8" style="margin: 0 0 24px; font-size: 24px; font-weight: 600; color: #000001">
-                    Ezyscribe access creation request,
+                    EzyScribe access creation request,
                   </h1>
                   <p style="margin: 0; line-height: 24px">
                     First Name: ${fName}
@@ -148,10 +148,10 @@ export const sendDemoReqEmail = async (
                   <div role="separator" style="line-height: 24px">&zwj;</div>
                   <div role="separator" style="height: 1px; line-height: 1px; margin: 32px 0; background-color: #e2e8f0">&zwj;</div>
                   <p style="margin: 0;">
-                    If you didn't sign up for Ezyscribe, you can safely ignore this email.
+                    If you didn't sign up for EzyScribe, you can safely ignore this email.
                     <br>
                     <br>
-                    Thanks, <br>The Ezyscribe Team
+                    Thanks, <br>The EzyScribe Team
                   </p>
                 </td>
               </tr>
@@ -161,7 +161,7 @@ export const sendDemoReqEmail = async (
               <tr>
                 <td style="padding-left: 24px; padding-right: 24px; text-align: center; font-size: 12px; color: #475569">
                   <p style="margin: 0 0 16px; text-transform: uppercase">
-                    &copy; Ezyscribe.com
+                    &copy; EzyScribe.com
                   </p>
                 </td>
               </tr>
@@ -201,7 +201,7 @@ export const send7DayDemoReqEmail = async (
     const info = await transporter.sendMail({
       from: process.env.MAIL_USER,
       to: "business@Pennhealthinfo.com , ezy_support@Pennhealthinfo.com", 
-      subject: "Ezyscribe Demo Request",
+      subject: "EzyScribe Demo Request",
       priority: "high",
       html: `
         <!DOCTYPE html>
@@ -287,7 +287,7 @@ export const send7DayDemoReqEmail = async (
               <tr>
                 <td class="sm-px-6" style="border-radius: 4px; background-color: #fffffe; padding: 48px; font-size: 16px; color: #334155; box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05)">
                   <h1 class="sm-leading-8" style="margin: 0 0 24px; font-size: 24px; font-weight: 600; color: #000001">
-                    Ezyscribe access creation request,
+                    EzyScribe access creation request,
                   </h1>
                   <p style="margin: 0; line-height: 24px">
                     First Name: ${fName}
@@ -316,10 +316,10 @@ export const send7DayDemoReqEmail = async (
                   <div role="separator" style="line-height: 24px">&zwj;</div>
                   <div role="separator" style="height: 1px; line-height: 1px; margin: 32px 0; background-color: #e2e8f0">&zwj;</div>
                   <p style="margin: 0;">
-                    If you didn't sign up for Ezyscribe, you can safely ignore this email.
+                    If you didn't sign up for EzyScribe, you can safely ignore this email.
                     <br>
                     <br>
-                    Thanks, <br>The Ezyscribe Team
+                    Thanks, <br>The EzyScribe Team
                   </p>
                 </td>
               </tr>
@@ -329,7 +329,7 @@ export const send7DayDemoReqEmail = async (
               <tr>
                 <td style="padding-left: 24px; padding-right: 24px; text-align: center; font-size: 12px; color: #475569">
                   <p style="margin: 0 0 16px; text-transform: uppercase">
-                    &copy; Ezyscribe.com
+                    &copy; EzyScribe.com
                   </p>
                 </td>
               </tr>
@@ -365,7 +365,7 @@ export const sendDemoReqStartEmail = async (
     const info = await transporter.sendMail({
       from: process.env.MAIL_USER,
       to: "business@Pennhealthinfo.com , ezy_support@Pennhealthinfo.com",
-      subject: "Ezyscribe Demo Request",
+      subject: "EzyScribe Demo Request",
       priority: "high",
       html: `
         <!DOCTYPE html>
@@ -451,7 +451,7 @@ export const sendDemoReqStartEmail = async (
               <tr>
                 <td class="sm-px-6" style="border-radius: 4px; background-color: #fffffe; padding: 48px; font-size: 16px; color: #334155; box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05)">
                   <h1 class="sm-leading-8" style="margin: 0 0 24px; font-size: 24px; font-weight: 600; color: #000001">
-                    Ezyscribe access creation request,
+                    EzyScribe access creation request,
                   </h1>
                   <p style="margin: 0; line-height: 24px">
                     First Name:
@@ -483,10 +483,10 @@ export const sendDemoReqStartEmail = async (
                   <div role="separator" style="line-height: 24px">&zwj;</div>
                   <div role="separator" style="height: 1px; line-height: 1px; margin: 32px 0; background-color: #e2e8f0">&zwj;</div>
                   <p style="margin: 0;">
-                    If you didn't sign up for Ezyscribe, you can safely ignore this email.
+                    If you didn't sign up for EzyScribe, you can safely ignore this email.
                     <br>
                     <br>
-                    Thanks, <br>The Ezyscribe Team
+                    Thanks, <br>The EzyScribe Team
                   </p>
                 </td>
               </tr>
@@ -496,7 +496,7 @@ export const sendDemoReqStartEmail = async (
               <tr>
                 <td style="padding-left: 24px; padding-right: 24px; text-align: center; font-size: 12px; color: #475569">
                   <p style="margin: 0 0 16px; text-transform: uppercase">
-                    &copy; Ezyscribe.com
+                    &copy; EzyScribe.com
                   </p>
                 </td>
               </tr>
@@ -538,7 +538,7 @@ export const sendContactEmail = async (
     const info = await transporter.sendMail({
       from: process.env.MAIL_USER,
       to: "business@Pennhealthinfo.com , ezy_support@Pennhealthinfo.com", 
-      subject: "Ezyscribe Demo Request",
+      subject: "EzyScribe Demo Request",
       priority: "high",
       html: `
         <!DOCTYPE html>
@@ -624,7 +624,7 @@ export const sendContactEmail = async (
               <tr>
                 <td class="sm-px-6" style="border-radius: 4px; background-color: #fffffe; padding: 48px; font-size: 16px; color: #334155; box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05)">
                   <h1 class="sm-leading-8" style="margin: 0 0 24px; font-size: 24px; font-weight: 600; color: #000001">
-                    Ezyscribe access creation request,
+                    EzyScribe access creation request,
                   </h1>
                   <p style="margin: 0; line-height: 24px">
                     First Name: ${fName}
@@ -658,10 +658,10 @@ export const sendContactEmail = async (
                   <div role="separator" style="line-height: 24px">&zwj;</div>
                   <div role="separator" style="height: 1px; line-height: 1px; margin: 32px 0; background-color: #e2e8f0">&zwj;</div>
                   <p style="margin: 0;">
-                    If you didn't sign up for Ezyscribe, you can safely ignore this email.
+                    If you didn't sign up for EzyScribe, you can safely ignore this email.
                     <br>
                     <br>
-                    Thanks, <br>The Ezyscribe Team
+                    Thanks, <br>The EzyScribe Team
                   </p>
                 </td>
               </tr>
@@ -671,7 +671,7 @@ export const sendContactEmail = async (
               <tr>
                 <td style="padding-left: 24px; padding-right: 24px; text-align: center; font-size: 12px; color: #475569">
                   <p style="margin: 0 0 16px; text-transform: uppercase">
-                    &copy; Ezyscribe.com
+                    &copy; EzyScribe.com
                   </p>
                 </td>
               </tr>

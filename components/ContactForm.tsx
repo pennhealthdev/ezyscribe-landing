@@ -22,6 +22,8 @@ import { sendDemoReqEmail } from "@/lib/mail"
 import { contactRequest, demoRequest } from "@/app/actions/sendMails"
 import { SparcleButton } from "./sparkle-button"
 import { CreateDemoSchema } from "@/app/schemas"
+import { Checkbox } from "./ui/checkbox"
+import Link from "next/link"
 
 
 
@@ -44,6 +46,8 @@ export function InputForm() {
       companyName: "",
       EHR: "",
       MedicalSpeciality: "",
+      smsupdates: false,
+      readPrivacy: true,
     },
   })
 
@@ -54,13 +58,14 @@ export function InputForm() {
     setIsSubmittingDemo(true);
     startTransition(() => {
       contactRequest(data).then((data) => {
-          toast.success("Form Submitted", {
-            description:
-              "Your form has been submitted successfully and will be processed shortly.",
-          });
-          form.reset();
-        })
-        .catch(() => {setError("Something went wrong")
+        toast.success("Form Submitted", {
+          description:
+            "Your form has been submitted successfully and will be processed shortly.",
+        });
+        form.reset();
+      })
+        .catch(() => {
+          setError("Something went wrong")
           setIsSubmittingDemo(false)
         });
     });
@@ -76,7 +81,7 @@ export function InputForm() {
             <FormItem>
               <FormLabel>First Name *</FormLabel>
               <FormControl>
-                <Input placeholder="" {...field} className="text-black"/>
+                <Input placeholder="" {...field} className="text-black" />
               </FormControl>
               <FormMessage />
             </FormItem>
@@ -89,7 +94,7 @@ export function InputForm() {
             <FormItem>
               <FormLabel>Lasr Name *</FormLabel>
               <FormControl>
-                <Input placeholder="" {...field}  className="text-black"/>
+                <Input placeholder="" {...field} className="text-black" />
               </FormControl>
 
               <FormMessage />
@@ -103,7 +108,7 @@ export function InputForm() {
             <FormItem>
               <FormLabel>Email *</FormLabel>
               <FormControl>
-                <Input placeholder="" {...field}  className="text-black"/>
+                <Input placeholder="" {...field} className="text-black" />
               </FormControl>
 
               <FormMessage />
@@ -117,7 +122,7 @@ export function InputForm() {
             <FormItem>
               <FormLabel>Mobile</FormLabel>
               <FormControl>
-                <Input placeholder="" {...field}  className="text-black"/>
+                <Input placeholder="" {...field} className="text-black" />
               </FormControl>
 
               <FormMessage />
@@ -131,7 +136,7 @@ export function InputForm() {
             <FormItem>
               <FormLabel>No of Peoples</FormLabel>
               <FormControl>
-                <Input placeholder="" {...field}  className="text-black"/>
+                <Input placeholder="" {...field} className="text-black" />
               </FormControl>
 
               <FormMessage />
@@ -145,7 +150,7 @@ export function InputForm() {
             <FormItem>
               <FormLabel>Location</FormLabel>
               <FormControl>
-                <Input placeholder="" {...field}  className="text-black"/>
+                <Input placeholder="" {...field} className="text-black" />
               </FormControl>
 
               <FormMessage />
@@ -159,7 +164,7 @@ export function InputForm() {
             <FormItem>
               <FormLabel>Company Name</FormLabel>
               <FormControl>
-                <Input placeholder="" {...field}  className="text-black"/>
+                <Input placeholder="" {...field} className="text-black" />
               </FormControl>
 
               <FormMessage />
@@ -173,7 +178,7 @@ export function InputForm() {
             <FormItem>
               <FormLabel>EHR</FormLabel>
               <FormControl>
-                <Input placeholder="" {...field}  className="text-black"/>
+                <Input placeholder="" {...field} className="text-black" />
               </FormControl>
 
               <FormMessage />
@@ -187,14 +192,69 @@ export function InputForm() {
             <FormItem>
               <FormLabel>Medical Speciality</FormLabel>
               <FormControl>
-                <Input placeholder="" {...field}  className="text-black"/>
+                <Input placeholder="" {...field} className="text-black" />
               </FormControl>
 
               <FormMessage />
             </FormItem>
           )}
         />
-        <SparcleButton type="submit" className="w-full">
+        <FormField
+          control={form.control}
+          name="MedicalSpeciality"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel>Medical Speciality</FormLabel>
+              <FormControl>
+                <Input placeholder="" {...field} className="text-black" />
+              </FormControl>
+
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+
+
+        <FormField
+          control={form.control}
+          name="smsupdates"
+          render={({ field }) => (
+            <FormItem className="flex flex-row items-start gap-2 col-span-2 hover:bg-accent/50 rounded-lg border border-transparent p-3 has-[[aria-checked=true]]:border-[#2f3192]  has-[[aria-checked=true]]:bg-[#2f319271]">
+              <FormControl>
+                <Checkbox
+                  className="data-[state=checked]:border-[#2f3192] data-[state=checked]:bg-[#2f3192] data-[state=checked]:text-white dark:data-[state=checked]:border-blue-700 dark:data-[state=checked]:bg-blue-700 bg-[#2f3192]"
+                  checked={!!field.value}
+                  onCheckedChange={field.onChange}
+                />
+              </FormControl>
+              <FormLabel className="text-sm font-normal !mt-0">
+                I agree to receive SMS updates from Pennhealth. Message and data rates may apply and can opt out anytime by replying 'STOP' to any message.
+              </FormLabel>
+            </FormItem>
+          )}
+        />
+
+        <FormField
+          control={form.control}
+          name="readPrivacy"
+          render={({ field }) => (
+            <FormItem className="flex flex-row items-start gap-2 col-span-2 hover:bg-accent/50 rounded-lg border border-transparent p-3 has-[[aria-checked=true]]:border-[#2f3192]  has-[[aria-checked=true]]:bg-[#2f319271]">
+              <FormControl>
+                <Checkbox
+                  className="data-[state=checked]:border-[#2f3192] data-[state=checked]:bg-[#2f3192] data-[state=checked]:text-white dark:data-[state=checked]:border-blue-700 dark:data-[state=checked]:bg-blue-700 bg-[#2f3192]"
+
+                  checked={!!field.value}
+                  onCheckedChange={field.onChange}
+                />
+              </FormControl>
+              <FormLabel className="text-sm font-normal !mt-0 p-0">
+                I have read and understood the Pennhealthinfo <Link className="underline underline-offset-2" href="/privacy">Privacy Policy</Link> *.
+              </FormLabel>
+            </FormItem>
+          )}
+        />
+
+        <SparcleButton type="submit" className="w-full col-span-2">
           Submit
         </SparcleButton>
         {/* <Button type="submit">Submit</Button> */}

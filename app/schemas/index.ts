@@ -33,6 +33,8 @@ export const CreateDemoSchema = z.object({
     (value) => !value || value.length > 2,
     { message: "Medical Speciality must be at least 2 characters if provided." }
   )),
+  smsupdates: z.optional(z.boolean()),
+  readPrivacy: z.optional(z.boolean()),
 })
 
 

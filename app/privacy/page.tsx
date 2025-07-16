@@ -344,10 +344,7 @@ export default async function Page() {
         Contact Us
       </h4>
       <p className="text-sm">
-        If you have any questions about this Privacy Policy, you can contact
-      </p>
-      <p className="text-sm">
-        us: <span><a href="mailto:business@pennhealthinfo.com ">business@pennhealthinfo.com</a></span>
+        If you have any questions about this Privacy Policy, you can contact us: <span><a href="mailto:business@pennhealthinfo.com ">business@pennhealthinfo.com</a></span>
       </p>
     </div>
   </div>

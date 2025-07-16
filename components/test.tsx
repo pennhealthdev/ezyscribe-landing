@@ -1,7 +1,7 @@
 const SHOWCASE_ITEMS = [
     {
       title: 'Log into our platform quickly and effortlessly',
-      description: 'Getting started with Ezyscribe is a breeze. Our technical team will provide you with complete support, ensuring the platform is set up quickly and effortlessly',
+      description: 'Getting started with EzyScribe is a breeze. Our technical team will provide you with complete support, ensuring the platform is set up quickly and effortlessly',
       image: '/authpage.png',
       focus: { x: 0, y: 40, scale: 1 },
       overlay: {
@@ -13,7 +13,7 @@ const SHOWCASE_ITEMS = [
     },
     {
       title: 'Record consultation and submit for AI processing',
-      description: 'Simply press the record button, and Ezyscribe will start capturing the audio. Once you stop recording, the file is automatically uploaded for AI processing.',
+      description: 'Simply press the record button, and EzyScribe will start capturing the audio. Once you stop recording, the file is automatically uploaded for AI processing.',
       image: '/ezyscribedrk1.webp',
       focus: { x: 50, y: 50, scale: 1 },
       overlay: {

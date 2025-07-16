@@ -224,7 +224,7 @@ export default async function Page() {
 
       </p>
 
-      <h4 className="text-lg text-center !mt-20">SCHEDULE A</h4>
+      {/* <h4 className="text-lg text-center !mt-20">SCHEDULE A</h4>
       <h4 className="text-lg text-center">BUSINESS ASSOCIATE AGREEMENT</h4>
 
       <p className="text-sm">
@@ -315,7 +315,7 @@ export default async function Page() {
 
       <p className="text-sm">
         A reference in this BAA to a section in the HIPAA Rules or the HITECH Act means the section as in effect or as amended, and for which compliance is required.
-      </p>
+      </p> */}
 
     </div>
   </div>

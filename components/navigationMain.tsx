@@ -31,11 +31,11 @@ export const links = [
     href: '#benefits',
   },
   {
-    title: 'Faqs',
+    title: 'FAQs',
     href: '#faqs',
   },
   {
-    title: 'Contact',
+    title: 'Contact us',
     href: '#contact',
   },
 ]
@@ -113,7 +113,7 @@ export function NavigationMain() {
 
         </div>
 
-        <SparcleButton className="hidden sm:block" link href='https://app.ezyscribe.com' target='_blank'>
+        <SparcleButton className="hidden sm:block [--active:1!important] hover:[--active:0!important]" link href='https://app.ezyscribe.com' target='_blank'>
           Sign In
         </SparcleButton>
 
@@ -139,7 +139,7 @@ export function NavigationMain() {
                   {item.title}
                 </a>
               ))}
-              <SparcleButton className=" block sm:hidden" link href='https://app.ezyscribe.com' target='_blank'>
+              <SparcleButton className="[--active:1!important] hover:[--active:0!important] block sm:hidden " link href='https://app.ezyscribe.com' target='_blank'>
                 Sign In
               </SparcleButton>
             </div>

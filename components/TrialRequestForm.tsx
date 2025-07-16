@@ -87,7 +87,7 @@ export function TrialRequestInputForm() {
           name="sName"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Lasr Name *</FormLabel>
+              <FormLabel>Last Name *</FormLabel>
               <FormControl>
                 <Input placeholder="" {...field}  className="text-black"/>
               </FormControl>

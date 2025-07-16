@@ -20,7 +20,8 @@ import Autoplay from "embla-carousel-autoplay"
 import { Custombutton } from "@/components/custombutton";
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
 import { Video } from "@/components/video";
-import { FaFacebook, FaInstagram, FaLinkedin, FaTwitter } from "react-icons/fa";
+import { FaFacebook, FaInstagram, FaLinkedin, FaPinterest } from "react-icons/fa";
+import { FaXTwitter } from "react-icons/fa6";
 import Link from "next/link";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { InputForm } from "@/components/ContactForm";
@@ -30,7 +31,7 @@ gsap.registerPlugin(ScrollTrigger);
 const SHOWCASE_ITEMS = [
   {
     title: 'Log into our platform quickly and effortlessly',
-    description: 'Getting started with Ezyscribe is a breeze. Our technical team will provide you with complete support, ensuring the platform is set up quickly and effortlessly',
+    description: 'Getting started with EzyScribe is a breeze. Our technical team will provide you with complete support, ensuring the platform is set up quickly and effortlessly',
     image: '/authpage.png',
     focus: { x: 0, y: 40, scale: 1 },
     overlay: {
@@ -46,7 +47,7 @@ const SHOWCASE_ITEMS = [
   },
   {
     title: 'Record consultation and submit for AI processing',
-    description: 'Simply press the record button, and Ezyscribe will start capturing the audio. Once you stop recording, the file is automatically uploaded for AI processing.',
+    description: 'Simply press the record button, and EzyScribe will start capturing the audio. Once you stop recording, the file is automatically uploaded for AI processing.',
     image: '/ezyscribedrk1.webp',
     focus: { x: 50, y: 50, scale: 1 },
     overlay: {
@@ -554,14 +555,14 @@ export default function Home() {
                   <div className=" flex justify-between gap-2">
                     <ArrowRight className="w-28 text-background p-1 h-6.5 bg-[#1B1626] rounded-full" />
                     <p className="text-background text-base font-normal">
-                    EzyScribe by Pennhealth Informatics LLC is our in-house AI medical scribe platform designed to deliver highly accurate medical documentation while integrating seamlessly into your workflow. EzyScribe’s user-friendly interface, professional assistance, and secure platform enable clinicians to focus more on patient care and less on administrative tasks. Our AI-driven solution ensures real-time, accurate documentation, helping providers enhance efficiency, reduce costs, and improve overall patient outcomes.
+                    EzyScribe by <Link className="underline" href="https://pennhealthinfo.com/" target="_blank">Pennhealth Informatics LLC </Link> is our in-house AI medical scribe platform designed to deliver highly accurate medical documentation while integrating seamlessly into your workflow. EzyScribe’s user-friendly interface, professional assistance, and secure platform enable clinicians to focus more on patient care and less on administrative tasks. Our AI-driven solution ensures real-time accurate documentation, helping providers enhance efficiency, reducing costs and improving overall patient outcome.
                     </p>
                   </div>
 
                   <div className=" flex justify-between gap-2">
                     <ArrowRight className="w-28 text-background p-1 h-6.5 bg-[#1B1626] rounded-full" />
                     <p className="text-background text-base font-normal">
-                    With a commitment to innovation and excellence, Pennhealth Informatics is transforming clinical documentation by combining advanced AI technology with a deep understanding of healthcare workflows. So experience effortless and accurate documentation with EzyScribe — Your AI-powered medical scribing solution.
+                    With a commitment to innovation and excellence, <Link className="underline" href="https://pennhealthinfo.com/" target="_blank">Pennhealth Informatics </Link> is transforming clinical documentation by combining advanced AI technology with a deep understanding of healthcare workflows. Experience effortless and accurate documentation with EzyScribe — Your AI-powered medical scribing solution.
                     </p>
                   </div>
 
@@ -615,12 +616,12 @@ export default function Home() {
                   <div className=" flex justify-between gap-2">
                     <ArrowRight className="w-28 text-background p-1 h-6.5 bg-[#1B1626] rounded-full" />
                     <p className="text-background text-base font-normal">
-                    Ezyscribe is an advanced ambient AI medical scribe designed to deliver highly accurate clinical documentation that fits effortlessly into your workflow. More than just another documentation tool, it’s your trusted partner in care. Built with advanced AI technology, EzyScribe adapts easily to your practice, offering unparalleled accuracy, amiable design, and robust security.
+                    EzyScribe is an advanced ambient AI medical scribing solution designed to deliver highly accurate clinical documentation that fits effortlessly into your workflow. More than just another documentation tool, it’s your trusted partner in care. Built with advanced AI technology, EzyScribe adapts easily to your practice, offering unparalleled accuracy, amiable design, and robust security.
                     </p>
                   </div>
                   <div className=" flex justify-between gap-2">
                     <ArrowRight className="w-28 text-background p-1 h-6.5 bg-[#1B1626] rounded-full" />
-                    <p className="text-background text-base font-normal">Whether you're a solo practitioner juggling multiple responsibilities or part of a large healthcare system looking for efficiency, EzyScribe works seamlessly to fit your demands. Our user-friendly interface and top-tier security allow you to focus on what is most important—your patients. Our professionals are always available with dedicated support to ensure top-quality medical documentation in EHR. So let’s redefine the way you document care, together.
+                    <p className="text-background text-base font-normal">Whether you're a solo practitioner juggling multiple responsibilities or part of a large healthcare system looking for efficiency, EzyScribe works seamlessly to fit your demands. Our user-friendly interface and top-tier security allow you to focus on what is most important—your patients. Our professionals are always available with dedicated support to ensure top-quality medical documentation in EHR. So let’s redefine the way you document patient encounter.
                     </p>
                   </div>
                 </div>
@@ -639,7 +640,7 @@ export default function Home() {
         <section id="how-we-work" className=" howwework scroll-section vertical-section h-full">
           <div className="max-w-6xl w-full pb-20 px-5 wrapper overflow-hidden h-screen">
             <div className="bg-[#1B1626] self-start text-left px-5 py-2 max-w-fit rounded-full text-background font-normal">
-              How does Ezyscribe work?
+              How does EzyScribe work?
             </div>
             {/* md:grid-cols-[1.5fr,3fr] */}
             <div role="list" className="list justify-start items-center h-full flex relative p-1 space-y-10 mt-10">
@@ -674,7 +675,7 @@ export default function Home() {
                 <div className="item_content">
                   <h2 className="mb-4 text-4xl font-bold text-background">Ambient AI technology.</h2>
                   <p className="item_p text-background/70 text-lg">
-                  Our cutting-edge ambient AI technology will quickly process the recorded audio to prepare a summarized report in customized format.
+                  Our cutting-edge ambient AI technology will quickly convert the audio files to prepare a summarized report in customized format.
                   </p>
                 </div>
                 <div className="relative item_media sm:w-full w-[120%]">
@@ -702,7 +703,7 @@ export default function Home() {
                 <div className="item_content">
                   <h2 className="mb-4 text-4xl font-bold text-background">Human scribe support.</h2>
                   <p className="item_p text-background/70 text-lg">
-                  A dedicated scribe can be assigned on request to review the reports prepared by AI and manually paste the notes into EHR within turnaround time (TAT)
+                  A dedicated scribe can be assigned on request to review the reports Generated by AI and manually paste the notes into EHR within turnaround time (TAT)
                   </p>
                 </div>
                 <div className="relative item_media sm:w-full w-[100%]">
@@ -762,19 +763,19 @@ export default function Home() {
         <section className="main overflow-hidden py-20 p-5" id="benefits">
 
           <div className="bg-[#1B1626] px-5 py-2 max-w-fit  mb-10 ml-[7.5rem]  rounded-full text-background text-left self-start font-normal">
-            Benefits of Ezyscribe
+            Benefits of EzyScribe
           </div>
           <div className="row" >
             <div className="card card-left group hover:bg-red-600 transition-colors duration-700 ease-in-out">
               <h3 className="">AI-Powered Accuracy</h3>
-              <p className="text-lg">Ezyscribe’s ambient AI scribe guarantees high accuracy and reliability in medical documentation, making it a trustworthy platform for healthcare providers. Its precision in recording information minimizes errors, leading to fewer denials and facilitating smoother, faster claims processing.</p>
+              <p className="text-lg">EzyScribe’s ambient AI scribe guarantees high accuracy and reliability in medical documentation, making it a trustworthy platform for healthcare providers. Its precision in recording information minimizes errors, leading to fewer denials and facilitating smoother, faster claims processing.</p>
               <div className="absolute bottom-0 right-0 opacity-30 text-background w-52 h-52 z-[-1] filter contrast-50">
                 <Image src='/Dart-06.png' alt="" fill objectFit="contain" quality={100} />
               </div>
             </div>
             <div className="card card-right sm:mt-20 hover:bg-blue-600 transition-colors duration-700 ease-in-out">
               <h3 className="">Intuitive Interface</h3>
-              <p className="text-lg">With Ezyscribe, physicians have access to an intuitive solution that documents relevant conversation in an accurate and timely manner, with just a microphone-equipped device and a web browser. This empowers them to focus purely on patient care while Ezyscribe handles everything clerical.</p>
+              <p className="text-lg">With EzyScribe, physicians have access to an intuitive solution that documents relevant conversation in an accurate and timely manner, with just a microphone-equipped device and a web browser. This empowers them to focus purely on patient care while EzyScribe handles everything clerical.</p>
               <div className="absolute bottom-0 right-0 opacity-30 text-background w-52 h-52 z-[-1] filter contrast-50">
                 <Image src='/interact-interactive-action-smartphone-touch.svg' alt="" fill objectFit="contain" quality={100} />
               </div>
@@ -790,7 +791,7 @@ export default function Home() {
             </div>
             <div className="card card-right  hover:bg-yellow-600 transition-colors duration-700 ease-in-out">
               <h3 className="">HIPAA Compliant</h3>
-              <p className="text-lg">Ezyscribe is fully HIPAA compliant, making it easy for healthcare providers to meet regulatory standards. The software ensures that patient information is securely handled and protected, maintaining confidentiality and trust.</p>
+              <p className="text-lg">EzyScribe is fully HIPAA compliant, making it easy for healthcare providers to meet regulatory standards. The software ensures that patient information is securely handled and protected, maintaining confidentiality and trust.</p>
               <div className="absolute bottom-0 right-0 opacity-10 text-background w-52 h-52 z-[-1] filter contrast-0">
                 <Image src='/hipaa-compliant-seeklogo-2.png' alt="" fill objectFit="contain" quality={100} />
               </div>
@@ -951,7 +952,7 @@ export default function Home() {
                   </AccordionContent>
                 </AccordionItem>
                 <AccordionItem value="item-7">
-                  <AccordionTrigger>Can my templates be loaded into our AI scribe? </AccordionTrigger>
+                  <AccordionTrigger>Can my templates be loaded into our AI Medical Scribe? </AccordionTrigger>
                   <AccordionContent>
                     Yes, your templates can be loaded into EzyScribe. Our system supports the integration of personalized templates, allowing users to tailor documentation workflow to meet their specific needs. Loading your templates will maintain consistency across notes, ensuring your unique formatting and content structure are preserved. This allows for a seamless transition from your existing documentation practices to the EzyScribe platform.
                   </AccordionContent>
@@ -963,7 +964,7 @@ export default function Home() {
                   </AccordionContent>
                 </AccordionItem>
                 <AccordionItem value="item-9">
-                  <AccordionTrigger>Does our AI scribe support multiple languages? </AccordionTrigger>
+                  <AccordionTrigger>Does our AI Medical scribe support multiple languages? </AccordionTrigger>
                   <AccordionContent>
                     We currently support English and Spanish languages however; we are actively working on expanding our language support to include additional languages in the future. Our goal is to ensure that EzyScribe meets the diverse linguistic needs of healthcare providers and their patients.
                   </AccordionContent>
@@ -993,8 +994,13 @@ export default function Home() {
             </div>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-[1fr,1fr,1fr] gap-5 text-left mx-auto p-10 items-center  footer-navs">
-            <div className="relative sm:w-40 h-20 ">
+            <div className="grid grid-cols-1 gap-2 items-center justify-items-center">
+              <div className="relative sm:w-40 h-12">
               <Image src="/Ezy Logo.png" alt="" fill objectFit="contain" />
+            </div>
+            <div className="relative sm:w-40 h-12">
+              <Image src="/pennhealth.webp" alt="" fill objectFit="contain" />
+            </div>
             </div>
             <div className=" sm:flex sm:justify-center w-full space-x-5 justify-start">
               {links.map((item, index) => (
@@ -1002,17 +1008,20 @@ export default function Home() {
               ))}
             </div>
             <div className="flex sm:space-x-2 sm:justify-end justify-center space-x-5">
-              <Link href='' className="p-1 text-background border border-background/50 rounded-full">
+              <Link href='https://www.facebook.com/pennhealthinformatics?mibextid=ZbWKwL' target="_blank" className="p-1 text-background border border-background/50 rounded-full">
                 <FaFacebook />
               </Link>
-              <Link href='' className="p-1 text-background border border-background/50 rounded-full">
+              <Link href='https://twitter.com/pennhealthllc' target="_blank" className="p-1 text-background border border-background/50 rounded-full">
+                <FaXTwitter />
+              </Link>
+              <Link href='https://www.instagram.com/pennhealthinformatics/' target="_blank" className="p-1 text-background border border-background/50 rounded-full">
                 <FaInstagram />
               </Link>
-              <Link href='' className="p-1 text-background border border-background/50 rounded-full">
-                <FaTwitter />
-              </Link>
-              <Link href='' className="p-1 text-background border border-background/50 rounded-full">
+              <Link href='https://www.linkedin.com/company/pennhealth-informatics/' target="_blank" className="p-1 text-background border border-background/50 rounded-full">
                 <FaLinkedin />
+              </Link>
+              <Link href='https://in.pinterest.com/pennhealthinformatics/' target="_blank" className="p-1 text-background border border-background/50 rounded-full">
+                <FaPinterest />
               </Link>
             </div>
           </div>
