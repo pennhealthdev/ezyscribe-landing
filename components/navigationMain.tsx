@@ -113,7 +113,7 @@ export function NavigationMain() {
 
         </div>
 
-        <SparcleButton className="hidden sm:block [--active:1!important] hover:[--active:0!important]" link href='https://app.ezyscribe.com' target='_blank'>
+        <SparcleButton className="hidden sm:block [--active:1!important] hover:[--active:0!important]" link href='https://appv2.ezyscribe.com' target='_blank'>
           Sign In
         </SparcleButton>
 

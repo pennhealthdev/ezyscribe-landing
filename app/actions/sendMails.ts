@@ -30,10 +30,10 @@ export const contactRequest = async (values: z.infer<typeof CreateDemoSchema>)=>
         return{error:"Invalid fields!"};
     };
 
-    const {fName,sName,email,mobnumber,location,companyName,EHR,MedicalSpeciality ,sizeOfPeoples } = validateFields.data;
+    const {fName,sName,email,mobnumber,location,companyName,EHR,MedicalSpeciality ,sizeOfPeoples, readPrivacy, smsupdates } = validateFields.data;
 
     try {
-        await sendContactEmail( fName,sName,email,mobnumber,location,companyName,EHR,MedicalSpeciality, sizeOfPeoples)
+        await sendContactEmail( fName,sName,email,mobnumber,location,companyName,EHR,MedicalSpeciality, sizeOfPeoples, readPrivacy, smsupdates)
         .then(()=>{
             return {success:"Email sent!"}
         });

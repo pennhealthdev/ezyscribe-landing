@@ -13,10 +13,12 @@ export const CreateDemoSchema = z.object({
     message: "Email must be at least 2 characters.",
   }),
   mobnumber: z.optional(z.string().refine(
-    (value) => !value || value.length > 2,
-    { message: "Mobile number must have at least 2 characters if provided." }
+    (value) => !value ||validator.isMobilePhone(value, "any", { strictMode: false }),
+    { message: "Please enter a valid mobile number." }
   )),
-  sizeOfPeoples: z.optional(z.number()),
+  sizeOfPeoples: z.optional(z.number().min(1, {
+    message: "Size of Peoples must be at least 1.",
+  })),
   location: z.optional(z.string().refine(
     (value) => !value || value.length > 2,
     { message: "Location must be at least 2 characters if provided." }
@@ -34,7 +36,9 @@ export const CreateDemoSchema = z.object({
     { message: "Medical Speciality must be at least 2 characters if provided." }
   )),
   smsupdates: z.optional(z.boolean()),
-  readPrivacy: z.optional(z.boolean()),
+  readPrivacy: z.boolean().refine((value) => value === true, {
+    message: "You must read and accept the privacy policy.",
+  }),
 })
 
 

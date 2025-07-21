@@ -47,26 +47,29 @@ export function InputForm() {
       EHR: "",
       MedicalSpeciality: "",
       smsupdates: false,
-      readPrivacy: true,
+      readPrivacy: false,
     },
   })
 
 
   function onSubmit(data: z.infer<typeof CreateDemoSchema>) {
+    if (isSubmittingDemo) return; // Prevent double submit
     setError("");
     setSuccess("");
     setIsSubmittingDemo(true);
     startTransition(() => {
-      contactRequest(data).then((data) => {
-        toast.success("Form Submitted", {
-          description:
-            "Your form has been submitted successfully and will be processed shortly.",
-        });
-        form.reset();
-      })
+      contactRequest(data)
+        .then((data) => {
+          form.reset();
+          toast.success("Form Submitted", {
+            description:
+              "Your form has been submitted successfully and will be processed shortly.",
+          });
+          setIsSubmittingDemo(false); // <-- Reset after success
+        })
         .catch(() => {
-          setError("Something went wrong")
-          setIsSubmittingDemo(false)
+          setError("Something went wrong");
+          setIsSubmittingDemo(false);
         });
     });
   }
@@ -92,7 +95,7 @@ export function InputForm() {
           name="sName"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Lasr Name *</FormLabel>
+              <FormLabel>Last Name *</FormLabel>
               <FormControl>
                 <Input placeholder="" {...field} className="text-black" />
               </FormControl>
@@ -136,9 +139,15 @@ export function InputForm() {
             <FormItem>
               <FormLabel>No of Peoples</FormLabel>
               <FormControl>
-                <Input placeholder="" {...field} className="text-black" />
+                <Input
+                  {...field}
+                  type="number"
+                  className="text-black"
+                  value={field.value ?? ""}
+                  onChange={e => field.onChange(e.target.value === "" ? undefined : Number(e.target.value))}
+                  min={1}
+                />
               </FormControl>
-
               <FormMessage />
             </FormItem>
           )}
@@ -199,20 +208,6 @@ export function InputForm() {
             </FormItem>
           )}
         />
-        <FormField
-          control={form.control}
-          name="MedicalSpeciality"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel>Medical Speciality</FormLabel>
-              <FormControl>
-                <Input placeholder="" {...field} className="text-black" />
-              </FormControl>
-
-              <FormMessage />
-            </FormItem>
-          )}
-        />
 
 
         <FormField
@@ -248,14 +243,16 @@ export function InputForm() {
                 />
               </FormControl>
               <FormLabel className="text-sm font-normal !mt-0 p-0">
+                <FormMessage />
                 I have read and understood the Pennhealthinfo <Link className="underline underline-offset-2" href="/privacy">Privacy Policy</Link> *.
               </FormLabel>
+
             </FormItem>
           )}
         />
 
-        <SparcleButton type="submit" className="w-full col-span-2">
-          Submit
+        <SparcleButton type="submit" className="w-full col-span-2" disabled={isSubmittingDemo}>
+          {isSubmittingDemo ? "Submitting..." : "Submit"}
         </SparcleButton>
         {/* <Button type="submit">Submit</Button> */}
       </form>

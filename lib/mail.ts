@@ -532,7 +532,9 @@ export const sendContactEmail = async (
   companyName: string | undefined,
   EHR: string | undefined,
   MedicalSpeciality: string | undefined,
-  sizeOfPeoples: number | undefined
+  sizeOfPeoples: number | undefined,
+  readPrivacy: boolean | undefined,
+  smsupdates: boolean | undefined,
 ) => {
   try {
     const info = await transporter.sendMail({
@@ -653,6 +655,12 @@ export const sendContactEmail = async (
 
                   <p style="margin: 0; line-height: 24px;">
                     Medical Speciality: ${sizeOfPeoples}
+                  </p>
+                  <p style="margin: 0; line-height: 24px;">
+                    Read Privacy Policy: ${readPrivacy}
+                  </p>
+                  <p style="margin: 0; line-height: 24px;">
+                    Subscribe to SMS Updates: ${smsupdates}
                   </p>
 
                   <div role="separator" style="line-height: 24px">&zwj;</div>
