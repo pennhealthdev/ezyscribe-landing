@@ -218,9 +218,8 @@ export function HeroSection() {
                         src='/ezyscribescreen.png'
                         alt={`Dashboard View`}
                         fill
-                        className="object-contain rounded-lg rounded-b-none "
+                        className="object-contain rounded-lg rounded-b-none object-top"
                         sizes="(max-width: 3060px) 100vw, 3060px"
-                        objectPosition="top center"
                         quality={100}
                         priority
                     />

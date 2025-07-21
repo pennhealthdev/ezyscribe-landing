@@ -290,17 +290,6 @@ export default function Home() {
         }
       });
 
-    // Pin the entire section
-    ScrollTrigger.create({
-      trigger: sectionRef2.current,
-      start: 'top top',
-      end: '+=400%',
-      pin: '.sticky-container',
-      scrub: true,
-      //markers: true,
-      pinSpacing: true,
-      invalidateOnRefresh: true
-    });
 
     // Hide all items initially except the first one
     gsap.set('.showcase-item', { opacity: 0, y: 20 });
@@ -322,7 +311,7 @@ export default function Home() {
       scrollTrigger: {
         trigger: sectionRef2.current,
         start: 'top top',
-        end: '+=400%',
+        end: '+=200%',
         scrub: 0.5,
         invalidateOnRefresh: true
       },
@@ -391,6 +380,7 @@ export default function Home() {
     scrollSection.forEach((section) => {
       const wrapper = section.querySelector(".wrapper");
       const items = wrapper?.querySelectorAll(".item");
+      const itemCount = items?.length || 0;
 
       // Initialize
       let direction = null;
@@ -401,10 +391,10 @@ export default function Home() {
         direction = "horizontal";
       }
 
-      initScroll(section, items, direction);
+      initScroll(section, items, direction, itemCount);
     });
 
-    function initScroll(section: any, items: any, direction: any) {
+    function initScroll(section: any, items: any, direction: any, itemCount: any) {
       // Initial states
       items.forEach((item: any, index: any) => {
         if (index !== 0) {
@@ -419,9 +409,9 @@ export default function Home() {
           trigger: section,
           pin: true,
           start: "top top",
-          end: () => `+=${items.length * 100}%`,
+          end: () => `+=${(itemCount - 1) * 700}`,
           scrub: 1,
-          invalidateOnRefresh: true
+          invalidateOnRefresh: true,
           // markers: true,
         },
         defaults: { ease: "none" }
@@ -479,27 +469,19 @@ export default function Home() {
         stagger: 0.2 // Stagger the animation
       });
 
-    let tl3 = gsap.timeline({
-      scrollTrigger: {
-        trigger: cta.current,
-        start: "top bottom",
-        end: "bottom bottom",
-        scrub: true,
-        //markers: true,
-        fastScrollEnd: true
-      }
-    });
-
-    tl3.fromTo(cta.current, {
+    gsap.fromTo(cta.current, {
       opacity: 0,
-      y: 100,
       scale: 0.5
     }, {
       opacity: 1,
-      y: 0,
       scale: 1,
-      duration: 0.5, // Faster animation
-      animation: "spring(1, 80, 10, 10)"
+      duration: 1,
+      ease: "power1",
+      scrollTrigger: {
+        trigger: cta.current,
+        start: "top 80%",
+        once: true,
+      }
     });
   })
 
@@ -531,7 +513,7 @@ export default function Home() {
                 <CarouselItem key={index} className="px-2 pl-10 basis-1/2 lg:basis-2/12 sm:aspect-square sm:gap-10">
                   <Card className="bg-transparent border-none">
                     <CardContent className="flex items-center justify-center sm:p-6 relative bg-transparent">
-                      <Image src={img.image} alt="" fill objectFit="contain" className="" />
+                      <Image src={img.image} alt="" fill className="object-contain" />
                     </CardContent>
                   </Card>
                 </CarouselItem>
@@ -555,14 +537,14 @@ export default function Home() {
                   <div className=" flex justify-between gap-2">
                     <ArrowRight className="w-28 text-background p-1 h-6.5 bg-[#1B1626] rounded-full" />
                     <p className="text-background text-base font-normal">
-                    EzyScribe by <Link className="underline" href="https://pennhealthinfo.com/" target="_blank">Pennhealth Informatics LLC </Link> is our in-house AI medical scribe platform designed to deliver highly accurate medical documentation while integrating seamlessly into your workflow. EzyScribe’s user-friendly interface, professional assistance, and secure platform enable clinicians to focus more on patient care and less on administrative tasks. Our AI-driven solution ensures real-time accurate documentation, helping providers enhance efficiency, reducing costs and improving overall patient outcome.
+                      EzyScribe by <Link className="underline" href="https://pennhealthinfo.com/" target="_blank">Pennhealth Informatics LLC </Link> is our in-house AI medical scribe platform designed to deliver highly accurate medical documentation while integrating seamlessly into your workflow. EzyScribe’s user-friendly interface, professional assistance, and secure platform enable clinicians to focus more on patient care and less on administrative tasks. Our AI-driven solution ensures real-time accurate documentation, helping providers enhance efficiency, reducing costs and improving overall patient outcome.
                     </p>
                   </div>
 
                   <div className=" flex justify-between gap-2">
                     <ArrowRight className="w-28 text-background p-1 h-6.5 bg-[#1B1626] rounded-full" />
                     <p className="text-background text-base font-normal">
-                    With a commitment to innovation and excellence, <Link className="underline" href="https://pennhealthinfo.com/" target="_blank">Pennhealth Informatics </Link> is transforming clinical documentation by combining advanced AI technology with a deep understanding of healthcare workflows. Experience effortless and accurate documentation with EzyScribe — Your AI-powered medical scribing solution.
+                      With a commitment to innovation and excellence, <Link className="underline" href="https://pennhealthinfo.com/" target="_blank">Pennhealth Informatics </Link> is transforming clinical documentation by combining advanced AI technology with a deep understanding of healthcare workflows. Experience effortless and accurate documentation with EzyScribe — Your AI-powered medical scribing solution.
                     </p>
                   </div>
 
@@ -575,9 +557,8 @@ export default function Home() {
                 src='/abtus.jpeg'
                 alt={`Dashboard View`}
                 fill
-                className="object-cover rounded-lg  "
+                className="object-cover rounded-lg  object-top"
                 sizes="(max-width: 3060px) 100vw, 3060px"
-                objectPosition="top center"
                 quality={100}
               />
 
@@ -601,9 +582,8 @@ export default function Home() {
                   src='/abtus.jpeg'
                   alt={`Dashboard View`}
                   fill
-                  className="object-cover rounded-lg  "
+                  className="object-cover rounded-lg  object-top"
                   sizes="(max-width: 3060px) 100vw, 3060px"
-                  objectPosition="top center"
                   quality={100}
                 />
               </div>
@@ -611,12 +591,12 @@ export default function Home() {
             </div>
             <div className="flex items-center h-full">
               <div className=" ">
-                <Image alt="" src="/EzyScribe.png" width={70} height={70} quality={100} objectFit="contain" className="justify-self-end" />
+                <Image alt="" src="/EzyScribe.png" width={70} height={70} quality={100} className="justify-self-end object-contain" />
                 <div className="space-y-10 mt-10">
                   <div className=" flex justify-between gap-2">
                     <ArrowRight className="w-28 text-background p-1 h-6.5 bg-[#1B1626] rounded-full" />
                     <p className="text-background text-base font-normal">
-                    EzyScribe is an advanced ambient AI medical scribing solution designed to deliver highly accurate clinical documentation that fits effortlessly into your workflow. More than just another documentation tool, it’s your trusted partner in care. Built with advanced AI technology, EzyScribe adapts easily to your practice, offering unparalleled accuracy, amiable design, and robust security.
+                      EzyScribe is an advanced ambient AI medical scribing solution designed to deliver highly accurate clinical documentation that fits effortlessly into your workflow. More than just another documentation tool, it’s your trusted partner in care. Built with advanced AI technology, EzyScribe adapts easily to your practice, offering unparalleled accuracy, amiable design, and robust security.
                     </p>
                   </div>
                   <div className=" flex justify-between gap-2">
@@ -637,15 +617,15 @@ export default function Home() {
           </div>
         </section>
 
-        <section id="how-we-work" className=" howwework scroll-section vertical-section h-full">
-          <div className="max-w-6xl w-full pb-20 px-5 wrapper overflow-hidden h-screen">
+        <section id="how-we-work" className=" howwework scroll-section vertical-section">
+          <div className="max-w-6xl w-full pb-20 pt-2 px-5 wrapper min-h-[500px]">
             <div className="bg-[#1B1626] self-start text-left px-5 py-2 max-w-fit rounded-full text-background font-normal">
               How does EzyScribe work?
             </div>
             {/* md:grid-cols-[1.5fr,3fr] */}
-            <div role="list" className="list justify-start items-center h-full flex relative p-1 space-y-10 mt-10">
+            <div role="list" className="list justify-start items-center flex relative p-1 space-y-10 mt-10">
 
-              <div className="item  bg-[#1a1a1a] bg-[url('/Ellipse 4078.png')] how-card-1 work-left">               
+              <div className="item min-h-[500px] bg-[#1a1a1a] bg-[url('/Ellipse 4078.png')] how-card-1 work-left ">
                 <div className="item_content">
                   <h2 className="mb-4 text-4xl text-background font-medium">Simply initiate recording.</h2>
                   <p className="item_p text-background/70 text-lg">
@@ -657,10 +637,8 @@ export default function Home() {
                     fill
                     id="animatedGif"
                     src='/Voice-Text-Bold.gif'
-                    objectFit="contain"
-                    objectPosition="center"
                     alt=""
-                    className="z-0 p-5 "
+                    className="z-0 p-5 object-contain object-center"
                     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 100vw, 100vw"
                     unoptimized
                     priority
@@ -670,12 +648,12 @@ export default function Home() {
                 {/* <video src="/Voice-Text-Bold.gif"   muted loop className="item_media"></video> */}
               </div>
 
-              <div className="item bg-blue-900 bg-[url('/ellipse2.png')] bg-cover bg-no-repeat bg-left work-right">
-                
+              <div className="item min-h-[500px] bg-blue-900 bg-[url('/ellipse2.png')] bg-cover bg-no-repeat bg-left work-right">
+
                 <div className="item_content">
                   <h2 className="mb-4 text-4xl font-bold text-background">Ambient AI technology.</h2>
                   <p className="item_p text-background/70 text-lg">
-                  Our cutting-edge ambient AI technology will quickly convert the audio files to prepare a summarized report in customized format.
+                    Our cutting-edge ambient AI technology will quickly convert the audio files to prepare a summarized report in customized format.
                   </p>
                 </div>
                 <div className="relative item_media sm:w-full w-[120%]">
@@ -683,10 +661,8 @@ export default function Home() {
                     id="animatedGif"
                     src='/Soap-note.gif'
                     fill
-                    objectFit="contain"
-                    objectPosition="center"
                     alt=""
-                    className="z-0"
+                    className="z-0 object-contain object-center"
                     sizes="(max-width: 768px) 100vw, (max-width: 2000px) 200vw, 100vw"
                     unoptimized
                     priority
@@ -698,23 +674,21 @@ export default function Home() {
               </div>
 
 
-              <div className="item  bg-[#1a1a1a] bg-[url('/Ellipse4078.png')] bg-left-top work-left bg-no-repeat">
-               
+              <div className="item min-h-[500px]  bg-[#1a1a1a] bg-[url('/Ellipse4078.png')] bg-left-top work-left bg-no-repeat">
+
                 <div className="item_content">
                   <h2 className="mb-4 text-4xl font-bold text-background">Human scribe support.</h2>
                   <p className="item_p text-background/70 text-lg">
-                  A dedicated scribe can be assigned on request to review the reports Generated by AI and manually paste the notes into EHR within turnaround time (TAT)
+                    A dedicated scribe can be assigned on request to review the reports Generated by AI and manually paste the notes into EHR within turnaround time (TAT)
                   </p>
                 </div>
                 <div className="relative item_media sm:w-full w-[100%]">
                   <Image
                     id="animatedGif"
-                     src='/Title-new.gif'
+                    src='/Title-new.gif'
                     fill
-                    objectFit="contain"
-                    objectPosition="center"
                     alt=""
-                    className="z-0"
+                    className="z-0 object-contain object-center"
                     sizes="(max-width: 768px) 100vw, (max-width: 2000px) 200vw, 100vw"
                     unoptimized
                     priority
@@ -723,23 +697,21 @@ export default function Home() {
                 </div>
               </div>
 
-              <div className="item  bg-[#1a1a1a] bg-[url('/Ellipse 4078.png')] how-card-1 work-left">
-          
+              <div className="item min-h-[500px]  bg-[#1a1a1a] bg-[url('/Ellipse 4078.png')] how-card-1 work-left">
+
                 <div className="item_content">
                   <h2 className="mb-4 text-4xl font-bold text-background">Live status update</h2>
                   <p className="item_p text-background/70 text-lg">
-                  You will receive real-time updates as reports are prepared and uploaded into EHR and completed reports can be accessed for review from your dashboard.  Data will be stored securely in our cloud-based server and automatically deleted after 30 days.
+                    You will receive real-time updates as reports are prepared and uploaded into EHR and completed reports can be accessed for review from your dashboard.  Data will be stored securely in our cloud-based server and automatically deleted after 30 days.
                   </p>
                 </div>
                 <div className="relative item_media sm:w-full w-[500%]">
                   <Image
                     id="animatedGif"
-                     src='/Final2.gif'
+                    src='/Final2.gif'
                     fill
-                    objectFit="contain"
-                    objectPosition="center"
                     alt=""
-                    className="z-0"
+                    className="z-0 object-contain object-center"
                     sizes="(max-width: 768px) 100vw, (max-width: 2000px) 200vw, 100vw"
                     unoptimized
                     priority
@@ -770,14 +742,14 @@ export default function Home() {
               <h3 className="">AI-Powered Accuracy</h3>
               <p className="text-lg">EzyScribe’s ambient AI scribe guarantees high accuracy and reliability in medical documentation, making it a trustworthy platform for healthcare providers. Its precision in recording information minimizes errors, leading to fewer denials and facilitating smoother, faster claims processing.</p>
               <div className="absolute bottom-0 right-0 opacity-30 text-background w-52 h-52 z-[-1] filter contrast-50">
-                <Image src='/Dart-06.png' alt="" fill objectFit="contain" quality={100} />
+                <Image src='/Dart-06.png' alt="" fill quality={100} className="object-contain" />
               </div>
             </div>
             <div className="card card-right sm:mt-20 hover:bg-blue-600 transition-colors duration-700 ease-in-out">
               <h3 className="">Intuitive Interface</h3>
               <p className="text-lg">With EzyScribe, physicians have access to an intuitive solution that documents relevant conversation in an accurate and timely manner, with just a microphone-equipped device and a web browser. This empowers them to focus purely on patient care while EzyScribe handles everything clerical.</p>
               <div className="absolute bottom-0 right-0 opacity-30 text-background w-52 h-52 z-[-1] filter contrast-50">
-                <Image src='/interact-interactive-action-smartphone-touch.svg' alt="" fill objectFit="contain" quality={100} />
+                <Image src='/interact-interactive-action-smartphone-touch.svg' alt="" fill className="object-contain" quality={100} />
               </div>
             </div>
           </div>
@@ -786,14 +758,14 @@ export default function Home() {
               <h3 className="">Save Costs</h3>
               <p className="text-lg">Our platform offers a cost-effective solution through optimal capacity utilization, ensuring high standards of accuracy. This enables healthcare providers to streamline their documentation processes, reduce overhead costs, and focus more on patient care.​</p>
               <div className="absolute bottom-0 right-0 opacity-30 text-background w-52 h-52 z-[-1] filter contrast-50">
-                <Image src='/043-results.png' alt="" fill objectFit="contain" quality={100} />
+                <Image src='/043-results.png' alt="" fill  className="object-contain" quality={100} />
               </div>
             </div>
             <div className="card card-right  hover:bg-yellow-600 transition-colors duration-700 ease-in-out">
               <h3 className="">HIPAA Compliant</h3>
               <p className="text-lg">EzyScribe is fully HIPAA compliant, making it easy for healthcare providers to meet regulatory standards. The software ensures that patient information is securely handled and protected, maintaining confidentiality and trust.</p>
               <div className="absolute bottom-0 right-0 opacity-10 text-background w-52 h-52 z-[-1] filter contrast-0">
-                <Image src='/hipaa-compliant-seeklogo-2.png' alt="" fill objectFit="contain" quality={100} />
+                <Image src='/hipaa-compliant-seeklogo-2.png' alt="" fill  className="object-contain" quality={100} />
               </div>
             </div>
           </div>
@@ -817,7 +789,7 @@ export default function Home() {
               </div>
               <div className=" w-full sm:h-full h-96 rounded-2xl bg-center bg-cover flex items-end justify-center relative overflow-hidden">
                 <div className=" absolute bottom-0 right-0 left-0 top-0 h-full w-full bg-gradient-to-t z-[1] from-[#090909] to-black/50"></div>
-                <Image src='/testimonial1.jpg' fill objectFit="cover" objectPosition="center" alt="" className="z-0" quality={100} />
+                <Image src='/testimonial1.jpg' fill  alt="" className="z-0 object-cover object-center" quality={100} />
 
                 <h5 className="text-lg font-medium mt-10 text-background p-5 z-10">100 % of our physicians highly recommend EzyScribe to their colleagues.</h5>
 
@@ -827,7 +799,7 @@ export default function Home() {
             <div className="grid grid-cols-1 md:grid-cols-[1.5fr,3fr] gap-5 mt-5">
               <div className=" w-full sm:h-full h-96 rounded-2xl bg-cover bg-center flex items-end justify-center relative overflow-hidden">
                 <div className=" absolute bottom-0 right-0 left-0 top-0 h-full w-full bg-gradient-to-t z-[1] from-[#090909] to-black/50"></div>
-                <Image src='/testimonial3.jpg' fill objectFit="cover" objectPosition="center" alt="" className="z-0" />
+                <Image src='/testimonial3.jpg' fill  alt="" className="z-0 object-cover object-center" quality={100} />
 
                 <h5 className="text-lg font-medium mt-10 text-background p-5 z-10">100 % of our physicians highly recommend EzyScribe to their colleagues.</h5>
               </div>
@@ -856,8 +828,8 @@ export default function Home() {
                 Learn More
               </Custombutton>
             </div>
-            <div className="mt-5 -ml-36 sm:m-0">
-              <div className=" ipad-big-2 hero-content group sm:absolute -right-36 top-10">
+            <div className="mt-5 sm:-ml-36 -ml-2 sm:m-0">
+              <div className=" ipad-big-2 hero-content group sm:absolute -right-36 sm:top-10">
                 <div className="relative w-full h-full  rounded-lg rounded-b-none overflow-hidden">
                   <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-20 ">
 
@@ -870,12 +842,12 @@ export default function Home() {
                           </button>
                         </div>
                       </DialogTrigger>
-                      <DialogContent className="sm:max-w-[425px] md:max-w-6xl">
+                      <DialogContent className="sm:max-w-[425px] md:max-w-6xl h-screen">
 
-                        <DialogHeader className="hidden">
-                          <DialogTitle>Edit profile</DialogTitle>
-                          <DialogDescription>
-                            Make changes to your profile here. Click save when you're done.
+                        <DialogHeader className="hidden ">
+                          <DialogTitle className="text-background text-2xl font-bold">Watch EzyScribe in Action</DialogTitle>
+                          <DialogDescription className="text-background/70">
+                            Experience the power of EzyScribe with our demo video.
                           </DialogDescription>
                         </DialogHeader>
                         <div className="">
@@ -890,12 +862,11 @@ export default function Home() {
                   </div>
 
                   <Image
-                    src='/ezyscribecom_dashboard_dark.webp'
+                    src='/ezyscribescreen.png'
                     alt={`Dashboard View`}
                     fill
-                    className="object-cover rounded-lg rounded-b-none "
+                    className="object-cover rounded-lg rounded-b-none object-left-top"
                     sizes="(max-width: 3060px) 100vw, 3060px"
-                    objectPosition="top center"
                     quality={100}
                   />
                 </div>
@@ -996,11 +967,11 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-[1fr,1fr,1fr] gap-5 text-left mx-auto p-10 items-center  footer-navs">
             <div className="grid grid-cols-1 gap-2 items-center justify-items-center">
               <div className="relative sm:w-40 h-12">
-              <Image src="/Ezy Logo.png" alt="" fill objectFit="contain" />
-            </div>
-            <div className="relative sm:w-40 h-12">
-              <Image src="/pennhealth.webp" alt="" fill objectFit="contain" />
-            </div>
+                <Image src="/Ezy Logo.png" alt="" fill className="object-contain" />
+              </div>
+              <div className="relative sm:w-40 h-12">
+                <Image src="/pennhealth.webp" alt="" fill className="object-contain" />
+              </div>
             </div>
             <div className=" sm:flex sm:justify-center w-full space-x-5 justify-start">
               {links.map((item, index) => (

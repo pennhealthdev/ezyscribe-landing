@@ -833,6 +833,9 @@ button:hover .button-text {
 .cta-inner{
   background-image: url('/Dark_1.jpg');
   background-position: top center;
+  opacity: 1;
+  transform: scale(1);
+  transition: opacity 0.3s, transform 0.3s;
 }
 
 .footer{
