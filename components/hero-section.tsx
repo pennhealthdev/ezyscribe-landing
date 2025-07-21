@@ -215,10 +215,10 @@ export function HeroSection() {
                     {/* <div className="absolute top-0 left-0  z-10 bg-gradient-to-t from-[#00111C] to-white/0 w-full h-full  pointer-events-none "></div> */}
 
                     <Image
-                        src='/ezyscribecom_dashboard_dark.webp'
+                        src='/ezyscribescreen.png'
                         alt={`Dashboard View`}
                         fill
-                        className="object-cover rounded-lg rounded-b-none "
+                        className="object-contain rounded-lg rounded-b-none "
                         sizes="(max-width: 3060px) 100vw, 3060px"
                         objectPosition="top center"
                         quality={100}
