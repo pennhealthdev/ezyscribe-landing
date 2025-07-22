@@ -1,12 +1,9 @@
 "use client"
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
-import { ArrowDown, Play, PlayCircleIcon } from "lucide-react";
+import {  Play } from "lucide-react";
 import Image from "next/image";
 import { useRef } from "react";
-import { Button } from "./ui/button";
-import { Popover } from "@radix-ui/react-popover";
-import { PopoverContent, PopoverTrigger } from "./ui/popover";
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from "./ui/dialog";
 import { Video } from "./video";
 import Waves from "./waves";
@@ -55,24 +52,6 @@ export function HeroSection() {
             scale: 1.3,
         })
 
-        // gsap.to('.landing', {
-        //     opacity: 0,
-        //     backgroundPosition: '-70%, top center, center 30%, center 100%',
-        //     stagger: 0.2,
-        //     paused: true
-        // })
-
-        // const handleMouseMove = (event: MouseEvent) => {
-        //     const landing = document.querySelector('.landing');
-        //     if (landing) {
-        //         const x = (event.clientX / window.innerWidth) * 100;
-        //         const y = (event.clientY / window.innerHeight) * 100;
-
-        //     }
-        // };
-
-        // window.addEventListener('mousemove', handleMouseMove);
-
     });
 
 
@@ -81,52 +60,6 @@ export function HeroSection() {
             ref={heroRef}
             className=" max-h-[150vh]  flex flex-col pt-28  px-4 overflow-hidden w-full landing relative bg-black"
         >
-            {/* <div className="w-[165vw] absolute top-[115px] left-[-332px] right-0 bottom-0 h-screen">
-            <Image
-                src='/Images/1-particle 0.svg'
-                alt={`Particle 1`}
-                fill
-                className="object-cover rounded-lg rounded-b-none  w-screen "
-                sizes="(max-width: 3060px) 100vw, 3060px"
-                objectPosition="center"
-                objectFit="cover"
-                quality={100}
-            />
-            </div>
-            <div className="w-[165vw] absolute top-[115px] left-[-332px] right-0 bottom-0 h-screen">
-
-            <Image
-                src='/Images/1-particle 0.svg'
-                alt={`Particle 2`}
-                fill
-                className="object-cover rounded-lg rounded-b-none mix-blend-screen"
-                sizes="(max-width: 3060px) 100vw, 3060px"
-                objectPosition="center"
-                objectFit="cover"
-                quality={100}
-            />
-            </div> */}
-
-            {/* <Image
-                src='/Images/1 Particle (2).png'
-                alt={`Particle 2`}
-                fill
-                className="object-cover rounded-lg rounded-b-none mix-blend-screen particle1"
-                sizes="(max-width: 3060px) 100vw, 3060px"
-                objectPosition="center"
-                objectFit="cover"
-                quality={100}
-            /> */}
-            {/* <Image
-                src='/Images/0 Particle.png'
-                alt={`Particle 2`}
-                fill
-                className="object-cover rounded-lg rounded-b-none mix-blend-screen particle2"
-                sizes="(max-width: 3060px) 100vw, 3060px"
-                objectPosition="center"
-                objectFit="cover"
-                quality={100}
-            /> */}
             <div className="absolute sm:top-0 -top-20 left-0 right-0 bottom-0 overflow-hidden">
                 <Waves />
             </div>

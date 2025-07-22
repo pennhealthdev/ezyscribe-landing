@@ -1,19 +1,15 @@
 "use client"
-import { CursorGlass } from "@/components/cursor";
 import { HeroSection } from "@/components/hero-section";
 import { links, NavigationMain } from "@/components/navigationMain";
 // import { NavigationMenuMenu } from "@/components/nav-menu";
-import { TabletShowcase } from "@/components/tablet-showcase";
-import { TabletShowcaseTwo } from "@/components/tablet-showcase2";
 import { Card, CardContent } from "@/components/ui/card";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
 import { TransitionLink } from "@/components/utils/TransitionLink";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import ReactLenis, { LenisRef } from "lenis/react";
-import { ArrowDown, ArrowRight, ArrowRightCircle, BrainCircuit, HandCoins, Icon, MonitorSmartphone, Play, PlayCircle, ShieldCheck } from "lucide-react";
-import { DynamicIcon } from "lucide-react/dynamic";
+import { LenisRef } from "lenis/react";
+import {  ArrowRight, Play,} from "lucide-react";
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import Autoplay from "embla-carousel-autoplay"
@@ -496,10 +492,6 @@ export default function Home() {
 
         <section className="relative flex flex-col bg-[#090909] mt-10">
           <div className="bg-gradient-to-r from-[#090909] to-white/0 z-10 w-[40%] h-full pointer-events-none absolute hidden sm:block sm:left-20 top-0"></div>
-          <div className="bg-gradient-to-r from-[#090909] to-white/0 z-10 w-[40%] h-full pointer-events-none absolute hidden sm:block sm:left-20 top-0"></div>
-          <div className="bg-gradient-to-r from-[#090909] to-white/0 z-10 w-[40%] h-full pointer-events-none absolute hidden sm:block sm:left-20 top-0"></div>
-          <div className="bg-gradient-to-r from-[#090909] to-white/0 z-10 w-[40%] h-full pointer-events-none absolute hidden sm:block sm:left-20 top-0"></div>
-          <div className="bg-gradient-to-l from-[#090909] to-white/0 z-10 w-[15%] h-full pointer-events-none absolute hidden sm:block sm:right-20 top-0"></div>
           <div className="bg-gradient-to-l from-[#090909] to-white/0 z-10 w-[15%] h-full pointer-events-none absolute hidden sm:block sm:right-20 top-0"></div>
           <div className="bg-[#1B1626] px-5 py-2 max-w-fit rounded-full text-background font-normal sm:absolute left-28 top-0 z-50 mb-10">
             Top EHR Platforms
@@ -513,7 +505,7 @@ export default function Home() {
                 <CarouselItem key={index} className="px-2 pl-10 basis-1/2 lg:basis-2/12 sm:aspect-square sm:gap-10">
                   <Card className="bg-transparent border-none">
                     <CardContent className="flex items-center justify-center sm:p-6 relative bg-transparent">
-                      <Image src={img.image} alt="" fill className="object-contain" />
+                      <Image src={img.image} alt="" fill className="object-contain" loading="lazy" quality={70} />
                     </CardContent>
                   </Card>
                 </CarouselItem>
@@ -557,9 +549,10 @@ export default function Home() {
                 src='/abtus.jpeg'
                 alt={`Dashboard View`}
                 fill
-                className="object-cover rounded-lg  object-top"
+                className="object-cover rounded-lg object-top"
                 sizes="(max-width: 3060px) 100vw, 3060px"
-                quality={100}
+                quality={70}
+                loading="lazy"
               />
 
             </div>
@@ -579,19 +572,21 @@ export default function Home() {
 
               <div className=" relative h-full w-full mt-5">
                 <Image
-                  src='/abtus.jpeg'
-                  alt={`Dashboard View`}
-                  fill
-                  className="object-cover rounded-lg  object-top"
-                  sizes="(max-width: 3060px) 100vw, 3060px"
-                  quality={100}
-                />
+                src='/abtus.jpeg'
+                alt={`Dashboard View`}
+                fill
+                className="object-cover rounded-lg object-top"
+                sizes="(max-width: 3060px) 100vw, 3060px"
+                quality={70}
+                loading="lazy"
+              />
               </div>
 
             </div>
             <div className="flex items-center h-full">
               <div className=" ">
                 <Image alt="" src="/EzyScribe.png" width={70} height={70} quality={100} className="justify-self-end object-contain" />
+                <Image alt="" src="/EzyScribe.png" width={70} height={70} quality={70} className="justify-self-end object-contain" loading="lazy" />
                 <div className="space-y-10 mt-10">
                   <div className=" flex justify-between gap-2">
                     <ArrowRight className="w-28 text-background p-1 h-6.5 bg-[#1B1626] rounded-full" />
@@ -867,7 +862,7 @@ export default function Home() {
                     fill
                     className="object-cover rounded-lg rounded-b-none object-left-top"
                     sizes="(max-width: 3060px) 100vw, 3060px"
-                    quality={100}
+                    quality={70}
                     loading="lazy"
                   />
                 </div>
@@ -969,9 +964,11 @@ export default function Home() {
             <div className="grid grid-cols-1 gap-2 items-center justify-items-center">
               <div className="relative sm:w-40 sm:h-12 w-full h-16">
                 <Image src="/Ezy Logo.png" alt="" fill className="object-contain" />
+                <Image src="/Ezy Logo.png" alt="" fill className="object-contain" loading="lazy" quality={70} />
               </div>
               <div className="relative sm:w-40 sm:h-12 w-full h-16">
                 <Image src="/pennhealth.webp" alt="" fill className="object-contain" />
+                <Image src="/pennhealth.webp" alt="" fill className="object-contain" loading="lazy" quality={70} />
               </div>
             </div>
             <div className=" sm:flex sm:justify-center w-full space-x-5 justify-start">
