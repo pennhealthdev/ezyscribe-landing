@@ -585,7 +585,7 @@ export default function Home() {
             </div>
             <div className="flex items-center h-full">
               <div className=" ">
-                <Image alt="" src="/EzyScribe.png" width={70} height={70} quality={100} className="justify-self-end object-contain" />
+                {/* <Image alt="" src="/EzyScribe.png" width={70} height={70} quality={100} className="justify-self-end object-contain" /> */}
                 <Image alt="" src="/EzyScribe.png" width={70} height={70} quality={70} className="justify-self-end object-contain" loading="lazy" />
                 <div className="space-y-10 mt-10">
                   <div className=" flex justify-between gap-2">
