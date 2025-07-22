@@ -3,12 +3,12 @@ import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import {  Play } from "lucide-react";
 import Image from "next/image";
-import { useRef } from "react";
+import { useRef} from "react";
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from "./ui/dialog";
 import { Video } from "./video";
-import Waves from "./waves";
 import { SparcleButton } from "./sparkle-button";
 import { TrialRequestInputForm } from "./TrialRequestForm";
+import Waves from "./waves";
 
 export function HeroSection() {
 
@@ -54,14 +54,14 @@ export function HeroSection() {
 
     });
 
-
     return (
         <section
             ref={heroRef}
             className=" max-h-[150vh]  flex flex-col pt-28  px-4 overflow-hidden w-full landing relative bg-black"
         >
             <div className="absolute sm:top-0 -top-20 left-0 right-0 bottom-0 overflow-hidden">
-                <Waves />
+                {/* Lazy load Three.js Waves for performance */}
+                 <Waves />
             </div>
 
 
