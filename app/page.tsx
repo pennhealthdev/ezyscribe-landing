@@ -742,14 +742,14 @@ export default function Home() {
               <h3 className="">AI-Powered Accuracy</h3>
               <p className="text-lg">EzyScribe’s ambient AI scribe guarantees high accuracy and reliability in medical documentation, making it a trustworthy platform for healthcare providers. Its precision in recording information minimizes errors, leading to fewer denials and facilitating smoother, faster claims processing.</p>
               <div className="absolute bottom-0 right-0 opacity-30 text-background w-52 h-52 z-[-1] filter contrast-50">
-                <Image src='/Dart-06.png' alt="" fill quality={100} className="object-contain" />
+                <Image src='/Dart-06.png' alt="" fill quality={100} className="object-contain" loading="lazy" />
               </div>
             </div>
             <div className="card card-right sm:mt-20 hover:bg-blue-600 transition-colors duration-700 ease-in-out">
               <h3 className="">Intuitive Interface</h3>
               <p className="text-lg">With EzyScribe, physicians have access to an intuitive solution that documents relevant conversation in an accurate and timely manner, with just a microphone-equipped device and a web browser. This empowers them to focus purely on patient care while EzyScribe handles everything clerical.</p>
               <div className="absolute bottom-0 right-0 opacity-30 text-background w-52 h-52 z-[-1] filter contrast-50">
-                <Image src='/interact-interactive-action-smartphone-touch.svg' alt="" fill className="object-contain" quality={100} />
+                <Image src='/interact-interactive-action-smartphone-touch.svg' alt="" fill className="object-contain" quality={100} loading="lazy"/>
               </div>
             </div>
           </div>
@@ -758,14 +758,14 @@ export default function Home() {
               <h3 className="">Save Costs</h3>
               <p className="text-lg">Our platform offers a cost-effective solution through optimal capacity utilization, ensuring high standards of accuracy. This enables healthcare providers to streamline their documentation processes, reduce overhead costs, and focus more on patient care.​</p>
               <div className="absolute bottom-0 right-0 opacity-30 text-background w-52 h-52 z-[-1] filter contrast-50">
-                <Image src='/043-results.png' alt="" fill  className="object-contain" quality={100} />
+                <Image src='/043-results.png' alt="" fill  className="object-contain" quality={100} loading="lazy"/>
               </div>
             </div>
             <div className="card card-right  hover:bg-yellow-600 transition-colors duration-700 ease-in-out">
               <h3 className="">HIPAA Compliant</h3>
               <p className="text-lg">EzyScribe is fully HIPAA compliant, making it easy for healthcare providers to meet regulatory standards. The software ensures that patient information is securely handled and protected, maintaining confidentiality and trust.</p>
               <div className="absolute bottom-0 right-0 opacity-10 text-background w-52 h-52 z-[-1] filter contrast-0">
-                <Image src='/hipaa-compliant-seeklogo-2.png' alt="" fill  className="object-contain" quality={100} />
+                <Image src='/hipaa-compliant-seeklogo-2.png' alt="" fill  className="object-contain" quality={100} loading="lazy"/>
               </div>
             </div>
           </div>
@@ -863,11 +863,12 @@ export default function Home() {
 
                   <Image
                     src='/ezyscribescreen.png'
-                    alt={`Dashboard View`}
+                    alt="Dashboard View"
                     fill
                     className="object-cover rounded-lg rounded-b-none object-left-top"
                     sizes="(max-width: 3060px) 100vw, 3060px"
                     quality={100}
+                    loading="lazy"
                   />
                 </div>
               </div>
@@ -964,12 +965,12 @@ export default function Home() {
               <InputForm />
             </div>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-[1fr,1fr,1fr] gap-5 text-left mx-auto p-10 items-center  footer-navs">
+          <div className="grid grid-cols-1 md:grid-cols-[1fr,3fr,1fr] gap-5 text-left mx-auto p-10 items-center  footer-navs">
             <div className="grid grid-cols-1 gap-2 items-center justify-items-center">
-              <div className="relative sm:w-40 h-12">
+              <div className="relative sm:w-40 sm:h-12 w-full h-16">
                 <Image src="/Ezy Logo.png" alt="" fill className="object-contain" />
               </div>
-              <div className="relative sm:w-40 h-12">
+              <div className="relative sm:w-40 sm:h-12 w-full h-16">
                 <Image src="/pennhealth.webp" alt="" fill className="object-contain" />
               </div>
             </div>
